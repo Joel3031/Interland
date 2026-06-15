@@ -1,0 +1,126 @@
+.careers {
+    padding-top: 100px !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.promote {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.careers .section-title h2 {
+    text-transform: capitalize !important;
+}
+
+.careers-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.careers-card:hover {
+    transform: scale(1.05);
+}
+
+.careers-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+    padding: 20px;
+
+    h1 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+.careers-card-body {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    padding: 20px;
+
+    p {
+        margin-top: 10px;
+        font-size: 14px;
+        /* line-height: 40px; */
+        font-weight: normal;
+        text-align: justify;
+    }
+}
+
+.java-developers {
+    background-color: #0B0D19;
+
+    h1 {
+        color: #fff;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+        max-width: 50px;
+    }
+}
+
+.environment {
+    width: 50% !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+
+    img {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: center;
+
+    }
+}
+
+#environment {
+    gap: 0px;
+}
+
+#positions {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px 20px;
+
+    .careers-card {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .careers-card-header {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 5px;
+    }
+}

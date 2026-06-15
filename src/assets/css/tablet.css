@@ -1,0 +1,75 @@
+/* Media query for tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #header .logo {
+        margin-right: auto !important;
+    }
+
+    #hero {
+        overflow: hidden;
+    }
+
+    #navbar {
+        margin-left: auto !important;
+    }
+
+    .promises .wrapper-items {
+        width: 100% !important;
+        grid-template-columns: auto auto !important;
+    }
+
+    .bottom-modal {
+        width: auto;
+        padding: 20px !important;
+    }
+
+    .tools {
+        width: 75px !important;
+    }
+
+    .simplification:hover,
+    .modify:hover,
+    .scalable:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .simplification {
+        transition: transform 0.3s ease;
+        padding: 10px !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    .modify {
+        transition: transform 0.3s ease;
+        padding: 10px !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    .scalable {
+        transition: transform 0.3s ease;
+        padding: 10px !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    .clients-container {
+        width: 690px !important;
+    }
+
+    .client-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel {
+        height: 200px !important;
+        width: 200px !important;
+    }
+
+    .dot {
+        height: 7px !important;
+        width: 7px !important;
+    }
+}

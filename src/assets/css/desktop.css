@@ -1,0 +1,49 @@
+/* Media query for desktops */
+@media only screen and (min-width: 1024px) {
+  #hero {
+    overflow: hidden;
+  }
+
+  .bottom-modal {
+    width: auto;
+  }
+
+  .simplification:hover,
+  .modify:hover,
+  .scalable:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  .simplification {
+    padding: 10px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .modify {
+    padding: 10px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .scalable {
+    padding: 10px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .clients-container {
+    width: 1290px !important;
+  }
+
+  .client-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel {
+    height: 200px !important;
+    width: 200px !important;
+  }
+}

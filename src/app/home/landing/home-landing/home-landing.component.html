@@ -1,0 +1,939 @@
+<section id="hero" class="d-flex align-items-center" style="background: #0B0D19;">
+  <div class="hero-particles-container">
+    <canvas id="hero-particles"></canvas>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 pt-2 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+        style="margin-top: 150px">
+        <h1>We empower financial institutions with open finance and trade.</h1>
+        <ul style="color: white;">
+          <li><i class="ri-check-line"></i> Share your vision with us, and
+            together, we'll turn it into something
+            extraordinary.</li>
+          <li><i class="ri-check-line"></i> Leverage our expertise in Banking
+            Solutions to drive your success.</li>
+          <li><i class="ri-check-line"></i> Experience unparalleled
+            support.</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" style="margin-top: 150px;">
+        <div class="parent icon-3d">
+          <div class="square" [@scatterAndGather1]="scatterAndGather1"></div>
+          <div class="square" [@scatterAndGather2]="scatterAndGather2"></div>
+          <div class="square" [@scatterAndGather3]="scatterAndGather3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-particles-container">
+      <canvas id="footer-particles"></canvas>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 mt-4 mt-lg-0 d-flex">
+          <div class="box flex-column h-100">
+            <span>01</span>
+            <h4>"Banking as a service(BaaS)"</h4>
+            <p>Connect your Fintech solutions effortlessly to our state-of-the-art banking infrastructure through our
+              comprehensive BaaS integration hub. We offer cutting-edge solutions tailored for banks, financial
+              institutions, and credit unions, seamlessly integrated with our Core Banking, Payment, and Treasury
+              platforms. Enable Fintech companies to onboard in just one day, leveraging the transformative power of
+              Open Finance.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 mt-4 mt-lg-0 d-flex">
+          <div class="box flex-column h-100">
+            <span>02</span>
+            <h4>"Corporate Internet Banking "</h4>
+            <p>The INTERLAND Corporate Digital Banking platform is a next-generation, AI-based corporate internet
+              banking portal that seamlessly integrates payments, Account services, trade, supply chain finance, cash
+              management and treasury services for corporate clients</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 mt-4 mt-lg-0 d-flex">
+          <div class="box flex-column h-100">
+            <span>03</span>
+            <h4>"Payment Service Hub"</h4>
+            <p>iPSH : an all-encompassing payment solution designed for the initiation, orchestration, execution, and
+              management of payments. It supports single, bulk, and real-time transactions within an API-enabled
+              ecosystem, ensuring seamless and efficient payment processing.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 mt-4 mt-lg-0 d-flex">
+          <div class="box flex-column h-100">
+            <span>04</span>
+            <h4>"Digital Cash Management"</h4>
+            <p>Our Digital Cash Management suite offers a comprehensive set of tools and products designed to streamline
+              the daily operations of corporate cash management. These solutions includes Virtual Accounts,
+              Host-to-Host, Liquidity Management, Cash Flow Forecasting , Reporting and Analytics etc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="counts" class="counts section-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-20 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-emoji-smile"></i>
+            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Major Banks</p>
+          </div>
+        </div>
+
+        <div class="col-lg-20 col-md-6 mt-5 mt-md-0">
+          <div class="count-box">
+            <i class="bi bi-journal-richtext"></i>
+            <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Digital Banks & Fintechs</p>
+          </div>
+        </div>
+
+        <div class="col-lg-20 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-headset"></i>
+            <span data-purecounter-start="0" data-purecounter-end="220" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Engineers</p>
+          </div>
+        </div>
+
+        <div class="col-lg-20 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-people"></i>
+            <span data-purecounter-start="0" data-purecounter-end="350" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Projects</p>
+          </div>
+        </div>
+
+        <div class="col-lg-20 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-people"></i>
+            <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Hours of support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="developer" class="developer section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Developer Hub</h2>
+        <div class="tabSection">
+          <div class="toggleTab">
+            <div class="toggle col-lg-6 col-md-6" [class.active]="productTab" [class.inactive]="!productTab"></div>
+            <div class="col-lg-6 col-md-6 tab-heading" [style.color]="productTab? '#000':'#fff'"
+              (click)="productTab = false">
+              Cloud
+            </div>
+            <div class="col-lg-6 col-md-6 tab-heading" [style.color]="!productTab? '#000':'#fff'"
+              (click)="productTab = true">
+              Tools
+            </div>
+          </div>
+        </div>
+        <h3>We specialize in the following areas</h3>
+      </div>
+
+      <div class='wrapper' *ngIf="!productTab">
+        <div class='carousel'>
+          <div class='carousel__item_1'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/oracle-cloud-logo.png" alt="OCI.png">
+              <p class="text-center">OCI</p>
+            </div>
+          </div>
+          <div class='carousel__item_1'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/google-logo.png" alt="Google.png">
+              <p class="text-center">Google</p>
+            </div>
+          </div>
+          <div class='carousel__item_1'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/amazon-logo.png" alt="Amazon.png">
+              <p class="text-center">Amazon</p>
+            </div>
+          </div>
+          <div class='carousel__item_1'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/alibaba-logo.png" alt="Alibaba.png">
+              <p class="text-center">Alibaba</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='wrapper mt-5' *ngIf="!productTab">
+        <div class='carousel-desc'>
+          <div class='carousel-desc-item_1'>
+            <div class='carousel-desc-item-body'>
+              <p>Oracle Cloud Infrastructure (OCI) offers cloud services including computing, storage, networking, and
+                database management.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item_1'>
+            <div class='carousel-desc-item-body'>
+              <p>Google provides internet services, search engines, online advertising, cloud computing, and software
+                solutions globally.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item_1'>
+            <div class='carousel-desc-item-body'>
+              <p>Amazon offers e-commerce, cloud computing, digital streaming, and artificial intelligence services
+                worldwide.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item_1'>
+            <div class='carousel-desc-item-body'>
+              <p>Alibaba provides e-commerce, retail, internet, and technology services, including online marketplaces,
+                cloud computing, and digital payments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='wrapper' *ngIf="productTab">
+        <div class='carousel'>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/flutter.png" alt="flutter.png">
+              <p class="text-center">Flutter</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/docker.png" alt="docker.png">
+              <p class="text-center">Docker</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/springBoot-icon.png"
+                alt="springBoot-icon.png">
+              <p class="text-center">Springboot</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/Angular-logo.png" alt="Angular-logo.png">
+              <p class="text-center">Angular</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/keycloak-icon.png"
+                alt="keycloak-icon.png">
+              <p class="text-center">Keycloak</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/java-logo.png" alt="java-logo.png">
+              <p class="text-center">Java</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/openapi-logo.png" alt="openapi-logo.png">
+              <p class="text-center">Open API</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/Kubernetes.png" alt="Kubernetes.png">
+              <p class="text-center">Kubernetes</p>
+            </div>
+          </div>
+          <div class='carousel__item'>
+            <div class='carousel__item-body text-center'>
+              <img class="image-size" src="../../../../assets/img/logo_images/Kotlin_Icon.png" alt="Kotlin_Icon.png">
+              <p class="text-center">Kotlin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='wrapper mt-5' *ngIf="productTab">
+        <div class='carousel-desc'>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Flutter transforms the development process.
+                Build, test, and deploy beautiful mobile, web, desktop, and
+                embedded experiences from a single codebase.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Docker helps developers build, share, run,
+                and verify applications anywhere — without tedious environment
+                configuration or management.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Spring Boot makes it easy to create
+                stand-alone, production-grade Spring based Applications that you
+                can "just run".</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Angular is an application-design framework
+                and development platform for creating efficient and
+                sophisticated single-page apps.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Keycloak provides user federation, strong
+                authentication, user management, fine-grained authorization, and
+                more.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Java is a fast, secure, reliable
+                programming language for coding everything from mobile apps and
+                enterprise software to big data applications and server-side
+                technologies.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Open API allows people to understand how an
+                API works, generate client code, create tests, apply design
+                standards, and much, much more.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Kubernetes automates operational tasks of
+                container management and includes built-in commands for
+                deploying, rolling out changes, scaling, monitoring, and
+                more—making it easier to manage applications.</p>
+            </div>
+          </div>
+          <div class='carousel-desc-item'>
+            <div class='carousel-desc-item-body'>
+              <p>Kotlin reduces time spent writing and
+                maintaining the same code for different platforms while
+                retaining the flexibility and benefits of native
+                programming.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="promises" class="promises section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>How Interland's Open Platform Enhances Your Bank and Digital Journey</h2>
+      </div>
+      <div class="wrapper">
+        <div class="wrapper-items">
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>Modular and Microservices Architecture</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>Leverage microservices for swift development and advancement, managing complex processes with flexible,
+                modular architecture for enhanced configuration.</p>
+            </div>
+          </div>
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>API-First Approach and SDK-Enabled Extensibility</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>Utilize consistent APIs for easy integration and ready-made SDKs to empower your IT team for expansion.
+              </p>
+            </div>
+          </div>
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>Flexible Deployment Options and Cloud-Native Platform</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>
+                Implement your open banking platform with flexible deployment options: on-premise, public or private
+                cloud, optimized for SaaS scalability.</p>
+            </div>
+          </div>
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>No Vendor Lock-In and Composable Architecture</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>Freedom to use vendor-agnostic modules with CNCF standards. Our architecture ensures resilience and
+                efficiency, leveraging Microsoft Azure and AWS.</p>
+            </div>
+          </div>
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>Tested Scalability and Traceability</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>Tested for high-performance handling of B2B data volumes. Our platform ensures continuous monitoring
+                and rapid issue response.</p>
+            </div>
+          </div>
+          <div class="promise-card">
+            <div class="promise-card-header">
+              <h1>Security and 24/7 Availability</h1>
+            </div>
+            <div class="promise-card-body">
+              <p>Benefit from robust security architecture and best cybersecurity practices. Our platform ensures 24/7
+                reliability for your open banking system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="services-tab-section">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Products & Services</h2>
+        <p>Explore our comprehensive enterprise solutions and ecosystem tools.</p>
+      </div>
+
+      <div class="category-tabs">
+        <button class="category-tab" [class.active]="activeCategory === 'Core'" (click)="setCategory('Core')">
+          Core Services
+        </button>
+        <button class="category-tab" [class.active]="activeCategory === 'Banking'" (click)="setCategory('Banking')">
+          Banking Products
+        </button>
+        <button class="category-tab" [class.active]="activeCategory === 'Ecosystem'" (click)="setCategory('Ecosystem')">
+          Ecosystem Products
+        </button>
+      </div>
+
+      <div class="service-pills" *ngIf="activeCategory === 'Core'">
+        <div class="service-pill" [class.active]="selectedService === 'PSH'" (click)="selectService('PSH')">
+          <i class="fa-solid fa-file-invoice-dollar"></i> PSH Systems
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'Payroll'" (click)="selectService('Payroll')">
+          <i class="fa-regular fa-credit-card"></i> Payroll System
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'WebSecurity'"
+          (click)="selectService('WebSecurity')">
+          <i class="fa-solid fa-shield-halved"></i> Web Security
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'BlockChain'"
+          (click)="selectService('BlockChain')">
+          <i class="bx bxs-coin-stack"></i> BlockChain
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'Banking'" (click)="selectService('Banking')">
+          <i class="ri-bank-line"></i> Banking
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'Financial'" (click)="selectService('Financial')">
+          <i class="ri-cash-line"></i> Financial
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'ITServiceManagement'"
+          (click)="selectService('ITServiceManagement')">
+          <i class="bx bx-chalkboard"></i> IT Service
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'AI'" (click)="selectService('AI')">
+          <i class="fa-solid fa-brain"></i> AI Technology
+        </div>
+      </div>
+
+      <div class="service-pills" *ngIf="activeCategory === 'Banking'">
+        <div class="service-pill" [class.active]="selectedService === 'PaymentSystems'"
+          (click)="selectService('PaymentSystems')">
+          <i class="bx bx-transfer"></i> Payment Systems
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'RetailBanking'"
+          (click)="selectService('RetailBanking')">
+          <i class="ri-store-2-line"></i> Retail Banking
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'CorporateBanking'"
+          (click)="selectService('CorporateBanking')">
+          <i class="ri-building-4-line"></i> Corporate Banking
+        </div>
+        <div class="service-pill" [class.active]="selectedService === 'OtherProducts'"
+          (click)="selectService('OtherProducts')">
+          <i class="ri-apps-2-line"></i> Specialized Products
+        </div>
+      </div>
+
+      <div class="service-pills" *ngIf="activeCategory === 'Ecosystem'">
+        <a class="service-pill" [class.active]="selectedService === 'Finexus'" (click)="selectService('Finexus')"
+          href="https://www.finexus.io/" target="_blank">
+          <i class="ri-bar-chart-box-line"></i> Finexus
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'PayzoBooks'" (click)="selectService('PayzoBooks')"
+          href="https://nexusglobal.sa/products/payzo-books" target="_blank">
+          <i class="ri-book-read-line"></i> Payzo Books
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'PayzoHR'" (click)="selectService('PayzoHR')"
+          href="https://payzohr.com/landing" target="_blank">
+          <i class="ri-team-line"></i> Payzo HR
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'Rhevira'" (click)="selectService('Rhevira')"
+          href="https://nexusglobal.sa/products/rhevira" target="_blank">
+          <i class="ri-global-line"></i> Rhevira
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'Mithqal'" (click)="selectService('Mithqal')"
+          href="https://nexusglobal.sa/products/mithqal" target="_blank">
+          <i class="ri-scales-3-line"></i> Mithqal
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'GrowK'" (click)="selectService('GrowK')"
+          href="https://growk.io/" target="_blank">
+          <i class="ri-line-chart-line"></i> GrowK
+        </a>
+        <a class="service-pill" [class.active]="selectedService === 'Sentinel360'"
+          (click)="selectService('Sentinel360')" href="https://www.sentinel360.org/" target="_blank">
+          <i class="ri-shield-check-line"></i> Sentinel 360
+        </a>
+      </div>
+
+      <div class="detail-box-container">
+
+        <div class="detail-content" *ngIf="selectedService === 'PSH'">
+          <h3>ALFARIS Payments Services Hub (PSH)</h3>
+          <p>ALFARIS Payments Services Hub (PSH) is a centralized real-time payments and transaction management solution
+            designed to streamline all payment processing operations for financial institutions. This sophisticated hub
+            handles high volumes of transactions with speed, security, and configurable, rules-driven processing,
+            allowing banks to maintain full control.</p>
+          <h4>Key Capabilities</h4>
+          <ul>
+            <li>Centrally manages multi-channel payment flows.</li>
+            <li>Ensures secure processing with advanced encryption.</li>
+            <li>Integrates with diverse financial networks and gateways.</li>
+            <li>Built on a highly scalable, open framework.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Payroll'">
+          <h3>ALFARIS Payroll System</h3>
+          <p>Navigate the complexities of modern payroll management with Alfaris Payroll System. Our comprehensive
+            offering combines advanced technology, user-friendly interfaces, and personalized support to ensure
+            accurate, compliant, and efficient payroll processing for organizations of any size. Focus on organizational
+            growth while Alfaris handles operational maneuvers.</p>
+          <h4>Why Choose Alfaris Payroll?</h4>
+          <ul>
+            <li>Streamlines and automates key payroll tasks.</li>
+            <li>Ensures compliance with regulatory requirements.</li>
+            <li>Provides detailed financial reporting and analytics.</li>
+            <li>Offers flexible payroll processing for diverse structures.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'WebSecurity'">
+          <h3>Web Security Solutions</h3>
+          <p>Protect your websites, web applications, and crucial data from evolving cyber threats with our robust Web
+            Security solutions. We provide a full spectrum of services to defend against attacks, fortify your digital
+            landscapes, and maintain data integrity, ensuring your online presence remains secure and resilient.</p>
+          <h4>Our Web Security Approach</h4>
+          <ul>
+            <li>Evaluation: Assessments, Risk Analysis, Compliance Review.</li>
+            <li>Deployment: Secure Configuration, Access Control, Secure Communication.</li>
+            <li>Operational: Monitoring, Incident Response, Patch Management.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'BlockChain'">
+          <h3>Blockchain Ecosystems</h3>
+          <p>Successfully implement mass-scale blockchain powered business ecosystems with our expert guidance. Alfaris
+            helps clients identify and harness the power of decentralized technology to create smarter, tamper-proof
+            business frameworks using enterprise-grade Decentralized Applications (DApps) and secure smart contracts.
+          </p>
+          <h4>Blockchain Capabilities</h4>
+          <ul>
+            <li>Enterprise DApps for new business models.</li>
+            <li>Smart Contracts for secure, seamless transactions.</li>
+            <li>Decentralized systems guaranteeing transactional trust.</li>
+            <li>Support for key blockchain technologies (Ethereum, Hyperledger, Corda).</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Banking'">
+          <h3>Banking Solutions</h3>
+          <p>Internet technology and straight-through processing have created a paradigm shift from brick and mortar
+            banks to virtual banking virtually across time zones, geographical locations, and delivery channels. Alfaris
+            provides comprehensive, secure digital banking solutions tailored for this modern, flexible landscape.</p>
+          <h4>Our Banking Expertise</h4>
+          <ul>
+            <li>Virtual banking cross-platform solutions.</li>
+            <li>Straight-through processing (STP) implementation.</li>
+            <li>Consulting and research services for digital strategy.</li>
+            <li>Integrated solutions across access points and delivery channels.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Financial'">
+          <h3>Financial Solutions</h3>
+          <p>Optimise financial routing, management, and reporting tools with our comprehensive suite. Designed for
+            operational efficiency and strategic insight, Alfaris Financial solutions include virtual account
+            management, escrow, corporate collections, and robust regulatory compliance, empowering organizations to
+            manage cash flow and streamline their financial ecosystem.</p>
+          <h4>Core Financial Services</h4>
+          <ul>
+            <li>Virtual account systems for diverse account management.</li>
+            <li>Real estate escrow management solutions.</li>
+            <li>Corporate collection systems.</li>
+            <li>Host to Host (H2H) secure communication.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'ITServiceManagement'">
+          <h3>IT Service Management</h3>
+          <p>Streamline infrastructure, IT operations, and service management with our expert solutions. Alfaris ensures
+            cost efficiency, service quality, and full alignment with business goals by managing the entire IT service
+            lifecycle. Focus on core business while our streamlined framework optimizes your technology ecosystem.</p>
+          <h4>Key Areas of ITSM</h4>
+          <ul>
+            <li>IT infrastructure management and monitoring.</li>
+            <li>Efficient IT service delivery and support systems.</li>
+            <li>Service cost optimization strategies.</li>
+            <li>Continuous improvement of technology frameworks.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'AI'">
+          <h3>AI Technology</h3>
+          <p>Our AI solutions power a wide spectrum of industries ranging from Banking to Consumer Tech.
+            dedicatedAlgorithm Experts and Data Scientists work to create AI platforms that integrate contextually
+            sensitive answering, predictive sales, sales intelligence, and machine learning into the technology of
+            today.</p>
+          <h4>AI Specialisations</h4>
+          <ul>
+            <li>Chatbot & Voicebot for contextual answering services.</li>
+            <li>Machine Learning for pattern identification and behavior analysis.</li>
+            <li>Deep Learning for cognitive business technology frameworks.</li>
+            <li>Sales Intelligence for increasing customer engagements.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'PaymentSystems'">
+          <h3>Payment Systems</h3>
+          <p>Transform your financial operations with our secure, seamless payment systems tailored for modern banks,
+            financial institutions, and regulators. Interland delivers highly compliant payment architectures supporting
+            both domestic networks and global cross-border frameworks, ensuring transactions are executed with speed and
+            absolute precision.</p>
+          <h4>System Capabilities</h4>
+          <ul>
+            <li>Comprehensive support for local networks like SARIE and GCC RTGS.</li>
+            <li>Global integration with SWIFT, Mastercard, and Ripple.</li>
+            <li>Real-time payment initiation, orchestration, and execution.</li>
+            <li>Modular architecture designed for rapid deployment and compliance.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'RetailBanking'">
+          <h3>Retail Banking</h3>
+          <p>Empower your institution to offer secure, intuitive, and lifestyle-centric retail banking experiences.
+            Interland enables banks to engage consumers across every digital touchpoint, modernizing the customer journey
+            from standard mobile and internet banking to cutting-edge interfaces like voice bots and video banking.</p>
+          <h4>Retail Banking Features</h4>
+          <ul>
+            <li>Omni-channel platforms for mobile, web, and branch experiences.</li>
+            <li>Advanced voice bot and video banking interfaces.</li>
+            <li>Seamless, secure consumer engagement and onboarding tools.</li>
+            <li>Personalized digital banking journeys to maximize customer retention.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'CorporateBanking'">
+          <h3>Corporate Banking</h3>
+          <p>Provide your corporate clients with robust, enterprise-grade digital banking tools that simplify their most
+            complex financial operations. The Interland Corporate Banking suite centralizes treasury management, payments,
+            and operational data into one cohesive, highly secure ecosystem.</p>
+          <h4>Corporate Solutions</h4>
+          <ul>
+            <li>Host-to-Host (H2H) integrations for seamless automated data flows.</li>
+            <li>Advanced virtual account management and structuring.</li>
+            <li>Sophisticated reconciliation systems for corporate finance.</li>
+            <li>Secure API connectivity for integrated treasury functions.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'OtherProducts'">
+          <h3>Specialized Financial Products</h3>
+          <p>Beyond core banking and payments, Interland offers a growing suite of specialized financial products designed
+            to address specific market needs. From automated invoicing to secure escrow management, these intelligent
+            platforms modernize key operational workflows while maintaining strict regulatory compliance.</p>
+          <h4>Specialized Tools</h4>
+          <ul>
+            <li><strong>Natheer:</strong> Advanced business alerting and notification solutions.</li>
+            <li><strong>Tabadul:</strong> Secure data and document exchange frameworks.</li>
+            <li>Digital platforms for invoice discounting and supplier matching.</li>
+            <li>Comprehensive escrow account management systems.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Finexus'">
+          <h3>Finexus: Next-Gen APIs</h3>
+          <p>Finexus provides next-generation financial and open banking API services, enabling institutions to build
+            and manage modern financial applications. This powerful platform unlocks the potential of financial data and
+            services through secure, accessible APIs, accelerating the pace of open innovation.</p>
+          <h4>Finexus Platform Highlights</h4>
+          <ul>
+            <li>Core financial API services.</li>
+            <li>Open banking API integrations.</li>
+            <li>Secure platform for modern financial applications.</li>
+            <li>API management tools and sandbox environments.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'PayzoBooks'">
+          <h3>Payzo Books: Cloud Accounting</h3>
+          <p>Payzo Books offers streamlined cloud accounting and financial tracking software for simplified bookkeeping.
+            This user-friendly tool enables real-time financial reporting, invoicing, and expense management, ensuring
+            organizations maintain tight control over their financial health and can make informed, data-driven
+            decisions.</p>
+          <h4>Payzo Books Features</h4>
+          <ul>
+            <li>Cloud-based bookkeeping and financial tracking.</li>
+            <li>Real-time financial reporting and analytics.</li>
+            <li>Integrated invoicing and expense management.</li>
+            <li>Simplified regulatory compliance tools.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'PayzoHR'">
+          <h3>Payzo HR: Comprehensive HRM</h3>
+          <p>Payzo HR is a comprehensive human resource and payroll management system for managing the entire employee
+            lifecycle from recruitment to offboarding. Payzo HR ensures compliant, accurate payroll, detailed employee
+            records, and optimized HR operations, enabling a streamlined workforce management approach.</p>
+          <h4>Payzo HR Capabilities</h4>
+          <ul>
+            <li>Full lifecycle employee management from recruitment.</li>
+            <li>Compliant payroll processing and tax reporting.</li>
+            <li>Optimization of all core HR operations.</li>
+            <li>Employee self-service portals and records.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Rhevira'">
+          <h3>Rhevira: Business Automation</h3>
+          <p>Rhevira provides enterprise resource planning (ERP) and business automation software for centralizing core
+            business processes. Alfaris Rhevira improves efficiency, data visibility, and overall control by automating
+            workflow across departments, enabling integrated, data-driven decision-making.</p>
+          <h4>Rhevira ERP Benefits</h4>
+          <ul>
+            <li>Centralization of core business processes.</li>
+            <li>Improved organizational data visibility.</li>
+            <li>Business automation across diverse workflows.</li>
+            <li>Integrated reporting and control systems.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Mithqal'">
+          <h3>Mithqal: Islamic Finance Tool</h3>
+          <p>Mithqal is a precision Islamic finance and wealth management tool for managing investments, zakat, and
+            inheritance. Fully compliant with Shariah principles, Mithqal offers a tailored solution for individuals and
+            institutions to manage their wealth in accordance with Islamic financial regulations.</p>
+          <h4>Mithqal Shariah Compliance</h4>
+          <ul>
+            <li>Compliance with Shariah financial principles.</li>
+            <li>Islamic investment management tools.</li>
+            <li>Zakat and inheritance management calculations.</li>
+            <li>Wealth management guidance and reporting.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'GrowK'">
+          <h3>GrowK: Performance Analytics</h3>
+          <p>GrowK provides business growth and performance analytics dashboards for tracking key performance indicators
+            (KPIs), gaining market insights, and making data-driven decisions. Optimize your growth strategy with this
+            centralized analytics platform for operational data.</p>
+          <h4>GrowK Features</h4>
+          <ul>
+            <li>Centralized business data analytics dashboard.</li>
+            <li>Tracking of all core key performance indicators.</li>
+            <li>Market insights and predictive analytics.</li>
+            <li>Data-driven decision support tools.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'Sentinel360'">
+          <h3>Sentinel 360: Cybersecurity</h3>
+          <p>Sentinel 360 offers top-tier open-source cybersecurity solutions at a fraction of the cost, providing
+            advanced threat detection, incident response, and continuous monitoring. Protect your organization's digital
+            assets without breaking the bank using tailored open-source security.</p>
+          <h4>Sentinel 360 Cybersecurity</h4>
+          <ul>
+            <li>Advanced open-source threat detection systems.</li>
+            <li>Rapid incident response capabilities.</li>
+            <li>Continuous security monitoring solutions.</li>
+            <li>AFFORDABLE open-source security protection.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <section id="clients">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Clients</h2>
+        <p class="text-center">Champions of innovation, guardians of excellence,
+          and architects of
+          tomorrow's success.
+        </p>
+        <p class="text-center mb-5">Together, we forge paths of growth,
+          innovation,
+          and mutual prosperity, inspiring confidence in every endeavor.
+        </p>
+      </div>
+
+      <div class="wrapper-items">
+        <div class="clients-item" *ngFor="let logo of Logos; let i = index">
+          <div class="clients-card">
+            <div class="client-img">
+              <img [src]="logo.url" [alt]="logo.alt">
+            </div>
+            <div class="client-name">
+              <h2>{{logo.alt}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 pt-3">
+        <p style="color: #a0a0a0; font-size: 15px;">
+          In partnership with
+          <a href="https://alfarisinfo.com/" target="_blank" rel="noopener noreferrer"
+            style="color: #c84c4c; font-weight: 600; text-decoration: none; transition: color 0.3s ease;">
+            AlFaris International Group
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Connect with InterLand seamlessly by using our engaging and
+          user-friendly contact form. Have questions,
+          suggestions, or specific requests for our team at InterLand? Your
+          input is valuable to us! Simply fill in
+          the details below,We're here and eager to assist you on your journey
+          to success.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info-box">
+                <i class="bx bx-map"></i>
+                <h3>Our Address</h3>
+                <p>7th Floor, Infopark Phase 2, Trans Asia, Kakkanad, Kerala
+                  682030, INDIA</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-envelope"></i>
+                <h3>Email Us</h3>
+                <p>info@interlandtech.com</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-phone-call"></i>
+                <h3>Call Us</h3>
+                <p>+91 4712710424<br>+91 9496851656</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name">
+                <div class="text-danger mt-1" *ngIf="f.name.touched && f.name.invalid">
+                  <small *ngIf="f.name.errors?.required">Name is required.</small>
+                  <small *ngIf="f.name.errors?.minlength">Name must be at least 2 characters.</small>
+                  <small *ngIf="f.name.errors?.pattern">Use letters and spaces only.</small>
+                </div>
+              </div>
+
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email">
+                <div class="text-danger mt-1" *ngIf="f.email.touched && f.email.invalid">
+                  <small *ngIf="f.email.errors?.required">Email is required.</small>
+                  <small *ngIf="f.email.errors?.email">Enter a valid email address.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" id="subject" placeholder="Subject" formControlName="subject">
+              <div class="text-danger mt-1" *ngIf="f.subject.touched && f.subject.invalid">
+                <small *ngIf="f.subject.errors?.required">Subject is required.</small>
+                <small *ngIf="f.subject.errors?.minlength">
+                  Subject must be at least 4 characters.
+                </small>
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <textarea class="form-control" id="message" rows="5" placeholder="Message"
+                formControlName="message"></textarea>
+              <div class="text-danger mt-1" *ngIf="f.message.touched && f.message.invalid">
+                <small *ngIf="f.message.errors?.required">Message is required.</small>
+                <small *ngIf="f.message.errors?.minlength">
+                  Message must be at least 10 characters.
+                </small>
+              </div>
+            </div>
+
+            <div class="my-3">
+              <div class="loading" *ngIf="isSubmitting">Loading…</div>
+              <div class="error-message text-danger" *ngIf="submitError">{{ submitError }}</div>
+              <div class="sent-message text-success" *ngIf="submitSuccess">
+                Your message has been sent. Thank you!
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" [disabled]="contactForm.invalid || isSubmitting">
+                Send Message
+              </button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,125 @@
+/* Media query for mobile devices */
+@media only screen and (max-width: 767px) {
+    #hero .container {
+        padding-top: 100px !important;
+    }
+
+    #hero {
+        overflow: hidden;
+    }
+
+    #hero .order-1 {
+        margin-top: 0 !important;
+    }
+
+    #hero .order-2 {
+        margin-top: 0 !important;
+    }
+
+    #hero .parent {
+        height: 500px !important;
+    }
+
+    /* #footer-particles {
+        width: 0 !important;
+    } */
+
+    .promises .wrapper-items {
+        width: 100% !important;
+        grid-template-columns: auto !important;
+    }
+
+    .services .row {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    }
+
+    .align-items-stretch {
+        transform: translateX(0px) !important;
+    }
+
+    .description {
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(48, 47, 84, 0.9);
+        transition: 0.3s;
+        z-index: 3;
+    }
+
+    .bottom-modal {
+        display: block !important;
+        position: absolute !important;
+        top: 100px !important;
+        right: 15px !important;
+        bottom: 25px !important;
+        left: 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 10px 0 !important;
+        border-radius: 10px !important;
+        background-color: #fff !important;
+        overflow-y: auto !important;
+        transition: 0.3s !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 20px !important;
+        scrollbar-width: thin;
+    }
+
+    /* For Webkit based browsers (Chrome, Safari, Opera) */
+    .bottom-modal::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .simplification:hover,
+    .modify:hover,
+    .scalable:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .clients-container {
+        width: 280px !important;
+    }
+
+    .client-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel {
+        height: 125px !important;
+        width: 125px !important;
+    }
+
+    .dot {
+        height: 3px !important;
+        width: 3px !important;
+        margin: 0 2px !important;
+    }
+
+    .psh-1 {
+        h1 {
+            font-size: 45px !important;
+            line-height: 45px !important;
+        }
+    }
+
+    #psh-screen-4 {
+        .lap-container {
+            justify-content: center !important;
+        }
+    }
+
+    #psh-screen-6 {
+        .plan-box-container {
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
