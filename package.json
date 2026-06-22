@@ -22,6 +22,8 @@
     "@nguniversal/express-engine": "^9.0.2",
     "@types/three": "^0.184.1",
     "install": "^0.13.0",
+    "lottie-web": "^5.13.0",
+    "ngx-lottie": "^7.1.0",
     "querystring": "^0.2.1",
     "rxjs": "~6.5.4",
     "three": "^0.184.0",

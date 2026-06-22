@@ -467,6 +467,10 @@
           (click)="selectService('PaymentSystems')">
           <i class="bx bx-transfer"></i> Payment Systems
         </div>
+        <div class="service-pill" [class.active]="selectedService === 'EscrowSystems'"
+          (click)="selectService('EscrowSystems')">
+          <i class="bx bx-transfer"></i> Escrow Systems
+        </div>
         <div class="service-pill" [class.active]="selectedService === 'RetailBanking'"
           (click)="selectService('RetailBanking')">
           <i class="ri-store-2-line"></i> Retail Banking
@@ -645,10 +649,31 @@
           </ul>
         </div>
 
+        <div class="detail-content" *ngIf="selectedService === 'EscrowSystems'">
+
+          <h3 class="clickable-heading" routerLink="/escrow">
+            Escrow Systems <i class="ri-arrow-right-up-line ms-2 link-icon"></i>
+          </h3>
+
+          <p>Transform your financial operations with our secure, seamless escrow systems tailored for modern banks,
+            financial institutions, and regulators. Interland delivers highly compliant escrow architectures supporting
+            both domestic networks and global cross-border frameworks, ensuring transactions are executed with speed and
+            absolute precision.</p>
+
+          <h4>System Capabilities</h4>
+          <ul>
+            <li>Comprehensive support for local networks like SARIE and GCC RTGS.</li>
+            <li>Global integration with SWIFT, Mastercard, and Ripple.</li>
+            <li>Real-time payment initiation, orchestration, and execution.</li>
+            <li>Modular architecture designed for rapid deployment and compliance.</li>
+          </ul>
+        </div>
+
         <div class="detail-content" *ngIf="selectedService === 'RetailBanking'">
           <h3>Retail Banking</h3>
           <p>Empower your institution to offer secure, intuitive, and lifestyle-centric retail banking experiences.
-            Interland enables banks to engage consumers across every digital touchpoint, modernizing the customer journey
+            Interland enables banks to engage consumers across every digital touchpoint, modernizing the customer
+            journey
             from standard mobile and internet banking to cutting-edge interfaces like voice bots and video banking.</p>
           <h4>Retail Banking Features</h4>
           <ul>
@@ -662,7 +687,8 @@
         <div class="detail-content" *ngIf="selectedService === 'CorporateBanking'">
           <h3>Corporate Banking</h3>
           <p>Provide your corporate clients with robust, enterprise-grade digital banking tools that simplify their most
-            complex financial operations. The Interland Corporate Banking suite centralizes treasury management, payments,
+            complex financial operations. The Interland Corporate Banking suite centralizes treasury management,
+            payments,
             and operational data into one cohesive, highly secure ecosystem.</p>
           <h4>Corporate Solutions</h4>
           <ul>
@@ -675,7 +701,8 @@
 
         <div class="detail-content" *ngIf="selectedService === 'OtherProducts'">
           <h3>Specialized Financial Products</h3>
-          <p>Beyond core banking and payments, Interland offers a growing suite of specialized financial products designed
+          <p>Beyond core banking and payments, Interland offers a growing suite of specialized financial products
+            designed
             to address specific market needs. From automated invoicing to secure escrow management, these intelligent
             platforms modernize key operational workflows while maintaining strict regulatory compliance.</p>
           <h4>Specialized Tools</h4>

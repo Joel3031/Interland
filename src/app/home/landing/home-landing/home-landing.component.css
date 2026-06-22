@@ -1730,6 +1730,32 @@
   padding: 40px;
 }
 
+/* Clickable Heading Styles */
+.clickable-heading {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.clickable-heading:hover {
+  color: #c84c4c !important;
+  /* Turns red on hover */
+}
+
+.link-icon {
+  font-size: 22px;
+  color: #a0a0a0;
+  transition: all 0.3s ease;
+}
+
+.clickable-heading:hover .link-icon {
+  color: #c84c4c;
+  transform: translate(3px, -3px);
+  /* Subtle up-right movement on hover */
+}
+
 .detail-content h3 {
   font-size: 28px;
   font-weight: 700;
