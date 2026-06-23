@@ -5,17 +5,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EscrowComponent } from './products/escrow/escrow.component';
+import { VirtualaccountComponent } from './products/virtualaccount/virtualaccount.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EscrowComponent
+    EscrowComponent,
+    VirtualaccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

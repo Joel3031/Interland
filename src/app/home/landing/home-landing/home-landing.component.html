@@ -471,6 +471,10 @@
           (click)="selectService('EscrowSystems')">
           <i class="bx bx-transfer"></i> Escrow Systems
         </div>
+        <div class="service-pill" [class.active]="selectedService === 'VirtualAccounts'"
+          (click)="selectService('VirtualAccounts')">
+          <i class="bx bx-wallet"></i> Virtual Accounts
+        </div>
         <div class="service-pill" [class.active]="selectedService === 'RetailBanking'"
           (click)="selectService('RetailBanking')">
           <i class="ri-store-2-line"></i> Retail Banking
@@ -635,7 +639,9 @@
         </div>
 
         <div class="detail-content" *ngIf="selectedService === 'PaymentSystems'">
-          <h3>Payment Systems</h3>
+          <h3 class="clickable-heading" routerLink="/psh">
+            Payment Systems <i class="ri-arrow-right-up-line ms-2 link-icon"></i>
+          </h3>
           <p>Transform your financial operations with our secure, seamless payment systems tailored for modern banks,
             financial institutions, and regulators. Interland delivers highly compliant payment architectures supporting
             both domestic networks and global cross-border frameworks, ensuring transactions are executed with speed and
@@ -655,17 +661,37 @@
             Escrow Systems <i class="ri-arrow-right-up-line ms-2 link-icon"></i>
           </h3>
 
-          <p>Transform your financial operations with our secure, seamless escrow systems tailored for modern banks,
-            financial institutions, and regulators. Interland delivers highly compliant escrow architectures supporting
-            both domestic networks and global cross-border frameworks, ensuring transactions are executed with speed and
-            absolute precision.</p>
+          <p>Secure your off-plan real estate developments with our specialized escrow infrastructure engineered for
+            developers, banks, and regulatory bodies. Novus delivers WAFI-compliant account architectures that
+            ring-fence project capital, ensuring buyer funds are managed, protected, and disbursed with absolute
+            transparency and regulatory precision.</p>
 
           <h4>System Capabilities</h4>
           <ul>
-            <li>Comprehensive support for local networks like SARIE and GCC RTGS.</li>
-            <li>Global integration with SWIFT, Mastercard, and Ripple.</li>
-            <li>Real-time payment initiation, orchestration, and execution.</li>
-            <li>Modular architecture designed for rapid deployment and compliance.</li>
+            <li>100% adherence to WAFI Off-Plan Sales and Rent Program guidelines.</li>
+            <li>Automated capital routing into Construction, Marketing, and Retention sub-accounts.</li>
+            <li>Real-time financial dashboards for continuous project cash flow visibility.</li>
+            <li>Secure document-based disbursement workflows with strict milestone condition gating.</li>
+          </ul>
+        </div>
+
+        <div class="detail-content" *ngIf="selectedService === 'VirtualAccounts'">
+
+          <h3 class="clickable-heading" routerLink="/virtual-account">
+            Virtual Accounts <i class="ri-arrow-right-up-line ms-2 link-icon"></i>
+          </h3>
+
+          <p>Transform your corporate treasury with our advanced Virtual Account Management (VAM) infrastructure.
+            Interland empowers enterprises to consolidate hundreds of physical bank accounts into a single master
+            ledger, providing real-time cash visibility, automated reconciliation, and intelligent spend controls across
+            all your departments and regional branches.</p>
+
+          <h4>Core Capabilities</h4>
+          <ul>
+            <li>Instant generation of digital sub-ledgers without branch visits.</li>
+            <li>Automated reconciliation using COBO and POBO architectures.</li>
+            <li>Direct ERP synchronization for straight-through processing (STP).</li>
+            <li>Granular budget enforcement and real-time transaction tracking.</li>
           </ul>
         </div>
 
