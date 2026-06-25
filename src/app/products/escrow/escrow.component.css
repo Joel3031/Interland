@@ -802,3 +802,31 @@ ul.footer-links li a:hover {
         margin-top: 20px;
     }
 }
+
+/* =========================================
+   10. LOGO VISIBILITY LOGIC
+   ========================================= */
+/* 02.svg (.black_logo) is actually the bright/white asset. Display it by default. */
+.logo{
+  width: 160px;
+  height: auto;
+}
+.logo .black_logo {
+    display: block !important;
+}
+
+.logo .white_logo {
+    display: none !important;
+}
+
+/* IF your header eventually turns solid white on scroll, 
+   this block ensures the dark logo takes over. */
+#header.bg-white .logo .black_logo,
+#header.header-scrolled-white .logo .black_logo {
+    display: none !important;
+}
+
+#header.bg-white .logo .white_logo,
+#header.header-scrolled-white .logo .white_logo {
+    display: block !important;
+}

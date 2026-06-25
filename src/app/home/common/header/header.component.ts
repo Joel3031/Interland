@@ -29,6 +29,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['./Interland/landing/psh']);
   }
 
+  navigateToVa() {
+    this.router.navigate(['./products/virtual-account']);
+  }
+
+  navigateToEscrow() {
+    this.router.navigate(['./products/escrow']);
+  }
+
   navigateToHome() {
     this.router.navigate(['./Interland/landing/home']).then(() => {
       const homeElement = document.querySelector('app-home');

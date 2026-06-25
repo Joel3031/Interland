@@ -47,7 +47,7 @@
 #sub-menu {
     margin: 0;
     padding: 0;
-    background-color: rgba(15, 15, 15, 0.85) !important;
+    background-color: rgba(15, 15, 15) !important;
     /* Deep dark with high opacity */
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
