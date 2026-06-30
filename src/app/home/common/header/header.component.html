@@ -1,10 +1,12 @@
 <header id="header" class="fixed-top" [class.header-scrolled]="isScrolled">
   <div class="container d-flex align-items-center">
     <div class="logo">
-      <a href="index.html" class="black_logo"> <img src="assets/img/its_logo/Interland_Logo-02.svg"
-          alt="Interland Logo"></a>
-      <a href="index.html" class="white_logo"> <img src="assets/img/its_logo/Interland_Logo-01.svg"
-          alt="Interland Logo"></a>
+      <a href="index.html" class="black_logo">
+        <img src="assets/img/its_logo/Interland_Logo-02.svg" alt="Interland Logo">
+      </a>
+      <a href="index.html" class="white_logo">
+        <img src="assets/img/its_logo/Interland_Logo-01.svg" alt="Interland Logo">
+      </a>
     </div>
 
     <nav id="navbar" class="navbar">
@@ -17,126 +19,100 @@
             Products
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <div class="row w-100 m-0">
+            <div class="dropdown-flex-container">
 
-              <div class="col-lg-3 menu-sidebar">
-                <img src="../../../../assets/img/its_logo/home_logo.svg" alt="Background" class="sidebar-bg-logo">
+              <div class="menu-sidebar">
+                <div class="sidebar-badge">The Vision</div>
                 <div class="iDesc">
                   Unleash the potential of financial institutions with open finance and trade. Share your vision,
                   leverage our expertise, and achieve remarkable success with our exceptional support.
                 </div>
               </div>
 
-              <div class="col-lg-9 menu-content">
-                <div class="row">
-
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="/Interland/landing/corpratebanking" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/Corporate-Internet-Banking.png"
-                              alt="Corporate Internet Banking">
-                          </div>
-                          Corporate Internet Banking
-                        </div>
-                      </a>
+              <div class="menu-content">
+                <div class="menu-grid">
+                  <a href="/Interland/landing/corpratebanking" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/Corporate-Internet-Banking.png"
+                        alt="Corporate Internet Banking">
                     </div>
-                  </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Corporate Internet Banking</div>
+                    </div>
+                  </a>
 
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="/Interland/landing/psh" (click)="navigateToPsh()" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/psh.png" alt="Payment Service Hub">
-                          </div>
-                          Payment Service Hub
-                        </div>
-                      </a>
+                  <a href="/Interland/landing/psh" (click)="navigateToPsh()" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/psh.png" alt="Payment Service Hub">
+                    </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Payment Service Hub</div>
                       <div class="points">
                         <ul>
                           <li>RTGS</li>
-                          <li>Real Time Payment (IPS)</li>
-                          <li>Utility Bill Payment System</li>
-                          <li>GCC RTGS & BUNA Systems</li>
-                          <li>SWIFT Platform Service</li>
-                          <li>Payroll System</li>
-                          <li>Liquidity Management</li>
-                          <li>Reconciliation & Settlement</li>
+                          <li>Real Time Payment</li>
+                          <li>Utility Bills</li>
+                          <li>GCC RTGS & BUNA</li>
+                          <li>SWIFT Platform</li>
+                          <li>Payroll</li>
+                          <li>Liquidity</li>
+                          <li>Settlement</li>
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </a>
 
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="/virtual-account" (click)="navigateToVa()" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/va.png" alt="Vrirtual Account">
-                          </div>
-                          Virtual Account
-                        </div>
-                      </a>
+                  <a href="/virtual-account" (click)="navigateToVa()" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/va.png" alt="Virtual Account">
                     </div>
-                  </div>
-
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="/escrow" (click)="navigateToEscrow()" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/escrow-account.png" alt="Escrow Account">
-                          </div>
-                          Escrow
-                        </div>
-                      </a>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Virtual Account</div>
                     </div>
-                  </div>
+                  </a>
 
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="#" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/Digital-Cash-Management.png"
-                              alt="Digital Cash Management">
-                          </div>
-                          Digital Cash Management
-                        </div>
-                      </a>
+                  <a href="/escrow" (click)="navigateToEscrow()" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/escrow-account.png" alt="Escrow Account">
+                    </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Escrow</div>
+                    </div>
+                  </a>
+
+                  <a href="#" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/Digital-Cash-Management.png" alt="Digital Cash Management">
+                    </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Digital Cash Management</div>
                       <div class="points">
                         <ul>
                           <li>Virtual Account</li>
                           <li>Real estate Escrow</li>
-                          <li>Corporate Collection System</li>
+                          <li>Corporate Collection</li>
                           <li>Host to Host (H2H)</li>
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </a>
 
-                  <div class="col-md-6 mb-3">
-                    <div class="menu-item-card">
-                      <a href="https://finexus.io/" target="_blank" rel="noopener noreferrer" class="card-title-link">
-                        <div class="sub-menu-heading">
-                          <div class="img-container">
-                            <img src="../../../../assets/img/png/BaaS.png" alt="BaaS">
-                          </div>
-                          BaaS
-                        </div>
-                      </a>
+                  <a href="https://finexus.io/" target="_blank" rel="noopener noreferrer" class="menu-item-card">
+                    <div class="img-container">
+                      <img src="../../../../assets/img/png/BaaS.png" alt="BaaS">
+                    </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">BaaS</div>
                       <div class="points">
                         <ul>
-                          <li>Open Banking Api Services</li>
-                          <li>Bank Administration portal</li>
+                          <li>Open Banking APIs</li>
+                          <li>Bank Admin portal</li>
                           <li>Sand Box</li>
-                          <li>TPP On boarding</li>
+                          <li>TPP Onboarding</li>
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
 
                 <div class="ecosystem-section">
@@ -152,7 +128,6 @@
                     <a href="https://www.sentinel360.org/" target="_blank" class="ecosystem-link">Sentinel 360</a>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -164,87 +139,64 @@
             Services
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <div class="row w-100 m-0">
+            <div class="dropdown-flex-container">
 
-              <div class="col-lg-3 menu-sidebar">
-                <img src="../../../../assets/img/its_logo/home_logo.svg" alt="Background" class="sidebar-bg-logo">
+              <div class="menu-sidebar">
+                <div class="sidebar-badge">Capabilities</div>
                 <div class="iDesc">
                   Unleash the potential of financial institutions with open finance and trade. Share your vision,
                   leverage our expertise, and achieve remarkable success with our exceptional support.
                 </div>
               </div>
 
-              <div class="col-lg-9 menu-content">
-                <div class="row">
-                  <div class="col-md-4 mb-4">
-                    <a href="" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/IaaS.png" alt="IaaS">
-                        </div>
-                        SaaS Infrastructure (IaaS)
-                      </div>
+              <div class="menu-content">
+                <div class="menu-grid">
+                  <a href="" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/IaaS.png" alt="IaaS"></div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">SaaS Infrastructure (IaaS)</div>
                       <p>Offers online applications and provides the infrastructure to build and manage them.</p>
-                    </a>
-                  </div>
-                  <div class="col-md-4 mb-4">
-                    <a href="" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/SaaS.png" alt="SaaS">
-                        </div>
-                        PSH SaaS Service
-                      </div>
+                    </div>
+                  </a>
+                  <a href="" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/SaaS.png" alt="SaaS"></div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">PSH SaaS Service</div>
                       <p>Offers scalable, cloud-based payment solutions for businesses.</p>
-                    </a>
-                  </div>
-                  <div class="col-md-4 mb-4">
-                    <a href="https://nexusglobal.sa/services/devops" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/Cloud-Devops-Services.png" alt="Cloud DevOps">
-                        </div>
-                        Cloud DevOps Services
-                      </div>
+                    </div>
+                  </a>
+                  <a href="https://nexusglobal.sa/services/devops" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/Cloud-Devops-Services.png"
+                        alt="Cloud DevOps"></div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Cloud DevOps Services</div>
                       <p>Streamline development and operations through automation and cloud solutions.</p>
-                    </a>
-                  </div>
-                  <div class="col-md-4 mb-4">
-                    <a href="" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/FaaS.png" alt="FaaS">
-                        </div>
-                        Fintech as a Service (FaaS)
-                      </div>
+                    </div>
+                  </a>
+                  <a href="" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/FaaS.png" alt="FaaS"></div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">Fintech as a Service (FaaS)</div>
                       <p>Delivers financial technology solutions via the cloud.</p>
-                    </a>
-                  </div>
-                  <div class="col-md-4 mb-4">
-                    <a href="" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/NaaS.png" alt="NaaS">
-                        </div>
-                        NeoBank as a Service (NaaS)
-                      </div>
+                    </div>
+                  </a>
+                  <a href="" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/NaaS.png" alt="NaaS"></div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">NeoBank as a Service (NaaS)</div>
                       <p>Provides cloud-based digital banking solutions for financial institutions.</p>
-                    </a>
-                  </div>
-                  <div class="col-md-4 mb-4">
-                    <a href="" class="menu-item-card">
-                      <div class="sub-menu-heading">
-                        <div class="img-container">
-                          <img src="../../../../assets/img/png/Blockchain.png" alt="Blockchain">
-                        </div>
-                        BlockChain
-                      </div>
+                    </div>
+                  </a>
+                  <a href="" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/Blockchain.png" alt="Blockchain">
+                    </div>
+                    <div class="card-text-content">
+                      <div class="sub-menu-heading">BlockChain</div>
                       <p>A decentralized, secure digital ledger technology for transparent transactions.</p>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </div>
               </div>
-
             </div>
           </div>
         </li>
@@ -258,29 +210,30 @@
             Blogs
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown3">
-            <div class="row w-100 m-0">
+            <div class="dropdown-flex-container">
 
-              <div class="col-lg-3 menu-sidebar">
-                <img src="../../../../assets/img/its_logo/home_logo.svg" alt="Background" class="sidebar-bg-logo">
+              <div class="menu-sidebar">
+                <div class="sidebar-badge">Insights</div>
                 <div class="iDesc">
                   Unleash the potential of financial institutions with open finance and trade. Share your vision,
                   leverage our expertise, and achieve remarkable success with our exceptional support.
                 </div>
               </div>
 
-              <div class="col-lg-9 menu-content blog-content">
+              <div class="menu-content blog-content">
                 <a href="https://www.linkedin.com/company/sentinel360s/posts/?feedView=all" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg style="height: 24px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1408.2 1144.3"
-                    xml:space="preserve">
-                    <path class="st0"
-                      d="M922.7,149v56.1H595.5c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2s27.5,61.2,61.2,61.2 c22.9,0,42.8-12.6,53.3-31.3h327.2v208.7H744L600.1,326.1h-240c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2 c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h214.7l143.9,147.6h204v62.2H171.4c-10.5-18.6-30.5-31.3-53.3-31.3 c-33.8,0-61.2,27.5-61.2,61.2c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h751.3v48.6H786.8L629.3,860.6H413.4 c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2c0,33.7,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3H654 l157.5-156.5h111.3v212.6c236.2-137.7,314.5-253.4,314.5-449s0-341.1,0-341.1C1040,139.6,922.7,149,922.7,149z M542.2,264.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C571.7,251.3,558.4,264.6,542.2,264.6z M306.8,385.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C336.4,372.3,323.1,385.6,306.8,385.6z M118.1,655.2 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5S134.3,655.2,118.1,655.2z M360,920.1 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C389.5,906.9,376.3,920.1,360,920.1z">
-                    </path>
-                    <path class="st2"
-                      d="M920.5,120.9c5-0.4,124.1-9.2,323.2,38.2l21.6,5.2v363.3c0,208.2-100.1,338.8-342.6,480.1l-28.2-15.8 c-25.6-15.8-69.2-45.4-133.8-97.4l-61.8,58.7c0,0,72,70.4,223.7,151.8c147.1-86,422.4-222.2,422.4-552.3s0-449,0-449 s-132.9-64.2-422.3-64.2c-179.9,0-348.1,31.3-425.9,68.8V120c0,0,87.2-24.2,125.5,28.2C622.3,148.2,769,120.9,920.5,120.9z">
-                    </path>
-                  </svg>
+                  rel="noopener noreferrer" class="blog-link">
+                  <div class="img-container">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                      viewBox="0 0 1408.2 1144.3" xml:space="preserve">
+                      <path class="st0"
+                        d="M922.7,149v56.1H595.5c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2s27.5,61.2,61.2,61.2 c22.9,0,42.8-12.6,53.3-31.3h327.2v208.7H744L600.1,326.1h-240c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2 c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h214.7l143.9,147.6h204v62.2H171.4c-10.5-18.6-30.5-31.3-53.3-31.3 c-33.8,0-61.2,27.5-61.2,61.2c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h751.3v48.6H786.8L629.3,860.6H413.4 c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2c0,33.7,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3H654 l157.5-156.5h111.3v212.6c236.2-137.7,314.5-253.4,314.5-449s0-341.1,0-341.1C1040,139.6,922.7,149,922.7,149z M542.2,264.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C571.7,251.3,558.4,264.6,542.2,264.6z M306.8,385.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C336.4,372.3,323.1,385.6,306.8,385.6z M118.1,655.2 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5S134.3,655.2,118.1,655.2z M360,920.1 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C389.5,906.9,376.3,920.1,360,920.1z">
+                      </path>
+                      <path class="st2"
+                        d="M920.5,120.9c5-0.4,124.1-9.2,323.2,38.2l21.6,5.2v363.3c0,208.2-100.1,338.8-342.6,480.1l-28.2-15.8 c-25.6-15.8-69.2-45.4-133.8-97.4l-61.8,58.7c0,0,72,70.4,223.7,151.8c147.1-86,422.4-222.2,422.4-552.3s0-449,0-449 s-132.9-64.2-422.3-64.2c-179.9,0-348.1,31.3-425.9,68.8V120c0,0,87.2-24.2,125.5,28.2C622.3,148.2,769,120.9,920.5,120.9z">
+                      </path>
+                    </svg>
+                  </div>
                   <b>Sentinel 360</b>
                 </a>
                 <p>
@@ -291,7 +244,6 @@
                   safer tomorrow, today.
                 </p>
               </div>
-
             </div>
           </div>
         </li>
@@ -299,12 +251,5 @@
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
-  </div>
-</header>
-<header class="site-header text-light">
-  <div class="site-header-inner">
-    <h1 class="m-0">
-      <a href="#"></a>
-    </h1>
   </div>
 </header>

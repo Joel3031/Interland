@@ -119,6 +119,19 @@ export class EscrowComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  onMouseMove(event: MouseEvent) {
+    const el = event.currentTarget as HTMLElement;
+    const rect = el.getBoundingClientRect();
+
+    // Calculate mouse position as a percentage (0% to 100%)
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    // Apply to CSS variables
+    el.style.setProperty('--mouse-x', `${x}%`);
+    el.style.setProperty('--mouse-y', `${y}%`);
+  }
+
   constructor(private title: Title, private meta: Meta) { }
 
   ngOnInit(): void {

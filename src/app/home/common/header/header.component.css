@@ -9,27 +9,33 @@
 .dropdown-hover:hover>.dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translate(-50%, 0); 
 }
 
 .dropdown-hover>.dropdown-toggle:active {
     pointer-events: none;
 }
 
+/* Dynamic Adaptive Dropdown Menu Styles */
 .dropdown-menu {
-    top: 73px;
-    width: 84vw !important;
-    left: 8vw;
-    /* Centered nicely */
+    top: 70px;
+    width: max-content !important; 
+    max-width: 92vw !important; 
+    left: 50%; 
     position: fixed;
     display: block !important;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-    background: transparent !important;
-    border: none;
-    box-shadow: none;
+    transform: translate(-50%, 15px); 
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+    background: rgba(11, 17, 32) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    padding: 0;
+    overflow: hidden;
 }
 
 .navbar ul {
@@ -39,317 +45,327 @@
     padding: 0;
 }
 
-
-
 /* =========================================
-   2. PREMIUM GLASSMORPHISM MEGA MENU
+   2. FLEX CONTAINER FOR MEGA MENU
    ========================================= */
-#sub-menu {
-    margin: 0;
-    padding: 0;
-    background-color: rgba(15, 15, 15) !important;
-    /* Deep dark with high opacity */
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    overflow: hidden;
+.dropdown-flex-container {
     display: flex;
+    width: 100%;
 }
 
 /* =========================================
-   3. MENU LAYOUT (SIDEBAR & CONTENT)
+   3. MENU SIDEBAR (LEFT)
    ========================================= */
 .menu-sidebar {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
-    position: relative;
-    padding: 30px;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    width: 260px; /* Slightly tighter sidebar */
+    flex-shrink: 0; 
+    background: rgba(255, 255, 255, 0.02);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 30px; /* Reduced padding */
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.menu-sidebar img.sidebar-bg-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.15;
-    z-index: 0;
+.sidebar-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #3B82F6;
+    background: rgba(59, 130, 246, 0.15);
+    padding: 6px 12px;
+    border-radius: 50px;
+    width: max-content;
+    margin-bottom: 16px;
 }
 
-.menu-sidebar .iDesc {
-    position: relative;
-    z-index: 1;
+.iDesc {
     font-size: 13.5px !important;
-    /* Boosted from grey to pure white for maximum legibility */
-    color: #ffffff !important;
-    line-height: 1.8;
+    color: #94A3B8 !important;
+    line-height: 1.7;
     text-align: left;
     font-weight: 400;
-    /* Adds a subtle dark shadow behind the text to pop it off the gradient */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-}
-
-.menu-content {
-    padding: 30px;
-    flex: 1;
 }
 
 /* =========================================
-   4. INTERACTIVE MENU CARDS
+   4. MENU CONTENT & GRID (RIGHT)
+   ========================================= */
+.menu-content {
+    padding: 30px; /* Tighter outer padding to reduce blank space */
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-grid {
+    display: grid;
+    /* Uses minmax to hug the content closely without stretching too wide */
+    grid-template-columns: repeat(2, minmax(260px, 300px)); 
+    gap: 12px; /* Reduced gap between cards to remove blank space */
+}
+
+/* =========================================
+   5. INTERACTIVE MENU CARDS
    ========================================= */
 .menu-item-card {
     display: flex;
-    position: relative;
-    flex-direction: column;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    gap: 14px;
+    padding: 12px 16px; /* Tighter padding inside the card */
+    border-radius: 12px;
+    transition: all 0.3s ease;
     text-decoration: none !important;
-    height: 100%;
+    background: transparent;
+    cursor: pointer;
 }
 
 .menu-item-card:hover {
     background: rgba(255, 255, 255, 0.04);
 }
 
-.menu-item-card .sub-menu-heading {
+.card-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* CRITICAL FIX: Forces flexbox to respect boundaries, stopping text from overlapping columns */
+    min-width: 0; 
+}
+
+.sub-menu-heading {
     font-size: 15px;
     font-weight: 600;
-    color: #ffffff !important;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    color: #F8FAFC !important;
     transition: color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ensures long titles don't break layout */
 }
 
 .menu-item-card:hover .sub-menu-heading {
-    color: #c84c4c;
+    color: #3B82F6 !important;
 }
 
 .menu-item-card p {
-    font-size: 12px;
-    color: #888;
-    margin: 0;
+    font-size: 12.5px;
+    color: #94A3B8;
+    margin: 4px 0 0 0;
     line-height: 1.5;
-    transition: color 0.3s ease;
+    /* Forces long descriptions to wrap to the next line securely */
+    white-space: normal; 
+    word-wrap: break-word; 
 }
 
-.menu-item-card:hover p {
-    color: #b0b0b0;
-}
-
-/* Image/Icon Containers inside cards */
+/* Image Container */
 .img-container {
-    width: 24px;
-    height: 24px;
+    width: 44px; /* Slightly smaller icon box */
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.img-container img {
-    max-width: 100%;
-    max-height: 100%;
+.img-container img, .img-container svg {
+    max-width: 22px;
+    max-height: 22px;
     filter: brightness(0) invert(1) !important;
-    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .menu-item-card:hover .img-container {
-    transform: scale(1.15) rotate(3deg);
-}
-
-.menu-item-card:hover .img-container img {
-    filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+    background: #3B82F6;
+    border-color: #3B82F6;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
 /* =========================================
-   5. LIST ITEMS & POINTS
+   6. PILL-TAGS (Replaces Bullets)
    ========================================= */
 .points ul {
     list-style: none;
     padding: 0;
-    margin: 10px 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 15px;
+    margin: 8px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .points li {
-    font-size: 12.5px;
-    color: #e0e0e0 !important;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #94A3B8 !important;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    white-space: nowrap;
 }
 
 .menu-item-card:hover .points li {
-    color: #ffffff;
+    color: #E2E8F0 !important;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .points li::before {
-    content: "•";
-    color: #c84c4c;
-    margin-right: 6px;
-    font-size: 16px;
-    /* Slightly larger bullet for better visual hierarchy */
+    display: none !important;
 }
 
 /* =========================================
-   6. ECOSYSTEM GRID
+   7. ECOSYSTEM GRID (BOTTOM BAR)
    ========================================= */
 .ecosystem-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     margin-top: 20px;
     padding-top: 20px;
 }
 
 .ecosystem-heading {
-    color: #666 !important;
+    color: #64748B !important;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    padding-left: 15px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .ecosystem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    max-width: 620px; 
 }
 
 .ecosystem-link {
-    padding: 10px 15px;
-    border-radius: 6px;
-    color: #ddd !important;
-    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    color: #CBD5E1 !important;
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 12.5px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.2s ease;
-    display: block;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .ecosystem-link:hover {
-    background: rgba(200, 76, 76, 0.1);
-    color: #c84c4c;
-    transform: translateX(4px);
+    background: rgba(59, 130, 246, 0.15);
+    color: #3B82F6 !important;
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 /* =========================================
-   7. UTILITIES & SVGS
+   8. BLOG SPECIFIC STYLING
    ========================================= */
 .blog-content {
-    padding: 20px;
+    justify-content: center;
 }
 
-.blog-content a {
-    display: inline-flex;
+.blog-link {
+    display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 18px;
-    color: #fff;
+    gap: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F8FAFC !important;
     text-decoration: none;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     transition: color 0.3s ease;
 }
 
-.blog-content a:hover {
-    color: #c84c4c;
+.blog-link:hover {
+    color: #3B82F6 !important;
+}
+
+.blog-link:hover .img-container {
+    background: #3B82F6;
+    border-color: #3B82F6;
+    transform: scale(1.05);
 }
 
 .blog-content p {
-    font-size: 13px;
-    color: #999;
+    font-size: 13.5px;
+    color: #94A3B8;
     line-height: 1.7;
-    text-align: justify;
+    margin: 0;
+    max-width: 580px; 
+    white-space: normal;
 }
 
-.st0 {
-    fill: #fff;
-}
+.st0, .st2 { fill: #fff; }
 
-.st1 {
-    fill: url(#SVGID_1_);
-}
-
-.st2 {
-    fill: #fff;
-}
-
-.site-header {
-    display: none;
-    /* Kept from original */
-}
+.site-header { display: none; }
 
 /* =========================================
-   8. DYNAMIC HEADER SCROLL EFFECT
+   9. DYNAMIC HEADER SCROLL EFFECT
    ========================================= */
 #header {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     background: transparent;
-    /* Starts transparent at the very top */
     padding: 15px 0;
-    /* Optional: adjust default padding */
 }
 
-/* Activates when the user scrolls down */
 #header.header-scrolled {
-    background-color: rgba(15, 15, 15, 0.95);
+    background-color: rgba(11, 17, 32, 0.95);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 10px 0;
-    /* Slightly shrinks the header to feel compact on scroll */
 }
 
 /* =========================================
-   9. MAIN NAVBAR TEXT COLOR FIX
+   10. MAIN NAVBAR TEXT COLOR FIX
    ========================================= */
-/* Lock the main header links to white to override Bootstrap defaults */
 #navbar>ul>li>a.nav-link {
     color: #ffffff !important;
-    opacity: 0.9;
+    opacity: 0.8;
     font-weight: 500;
     transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Ensure the hover state and active dropdown state use your brand red */
 #navbar>ul>li>a.nav-link:hover,
 #navbar>ul>li.dropdown-hover:hover>a.nav-link {
-    color: #c84c4c !important;
+    color: #3B82F6 !important;
     opacity: 1;
 }
 
 /* =========================================
-   10. LOGO VISIBILITY LOGIC
+   11. LOGO VISIBILITY LOGIC
    ========================================= */
-/* 02.svg (.black_logo) is actually the bright/white asset. Display it by default. */
-.logo .black_logo {
-    display: block !important;
-}
+.logo .black_logo { display: block !important; }
+.logo .white_logo { display: none !important; }
 
-.logo .white_logo {
-    display: none !important;
-}
-
-/* IF your header eventually turns solid white on scroll, 
-   this block ensures the dark logo takes over. */
 #header.bg-white .logo .black_logo,
-#header.header-scrolled-white .logo .black_logo {
-    display: none !important;
-}
+#header.header-scrolled-white .logo .black_logo { display: none !important; }
 
 #header.bg-white .logo .white_logo,
-#header.header-scrolled-white .logo .white_logo {
-    display: block !important;
+#header.header-scrolled-white .logo .white_logo { display: block !important; }
+
+/* =========================================
+   12. MOBILE FALLBACKS
+   ========================================= */
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: none !important;
+        left: auto !important;
+    }
+    
+    .dropdown-hover:hover>.dropdown-menu {
+        transform: none !important;
+    }
+
+    .dropdown-flex-container { flex-direction: column; }
+    .menu-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 20px; }
+    .menu-content { padding: 20px; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .ecosystem-grid { max-width: 100%; }
+    .blog-content p { max-width: 100%; }
 }

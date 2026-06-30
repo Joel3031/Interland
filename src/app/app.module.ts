@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EscrowComponent } from './products/escrow/escrow.component';
 import { VirtualaccountComponent } from './products/virtualaccount/virtualaccount.component';
 import { CommonModule } from '@angular/common';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CommonModule 
+    CommonModule,
+    HomeModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
