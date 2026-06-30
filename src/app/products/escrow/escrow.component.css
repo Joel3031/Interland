@@ -188,6 +188,17 @@ p {
     overflow: hidden;
 }
 
+.laptop-dashboard {
+  width: 92%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+}
+
+@media (max-width: 768px) {
+  .laptop-dashboard { width: 96%; }
+}
+
 .laptop-base {
     width: 480px;
     height: 22px;
@@ -829,3 +840,4 @@ ul.footer-links li a:hover {
 #header.header-scrolled-white .logo .white_logo {
     display: block !important;
 }
+
