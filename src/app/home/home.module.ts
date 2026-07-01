@@ -21,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    HeaderComponent 
+    HeaderComponent,
+    FooterComponent 
   ]
 })
 export class HomeModule { }

@@ -380,7 +380,7 @@ button { font-family: var(--psh-font-body); cursor: pointer; }
 }
 
 .psh__card-grid--3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .psh__card-grid--auto {
@@ -425,6 +425,7 @@ button { font-family: var(--psh-font-body); cursor: pointer; }
 .psh__card-icon {
   width: 48px;
   height: 48px;
+  filter: none;
   border-radius: 13px;
   background: var(--psh-ice);
   border: 1px solid var(--psh-ice-2);
@@ -438,6 +439,7 @@ button { font-family: var(--psh-font-body); cursor: pointer; }
   width: 26px;
   height: 26px;
   object-fit: contain;
+  /* c */
 }
 
 .psh__card h4 {

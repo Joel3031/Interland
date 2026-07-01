@@ -157,11 +157,11 @@ h6 {
   -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
   box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
 
-  ul,
+  /* ul,
   p,
   .iDesc {
     color: #000;
-  }
+  } */
 
   .border-left {
     border-left: 1px solid #000;
@@ -263,8 +263,8 @@ h6 {
 .navbar a:focus {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  /* justify-content: space-between; */
+  padding: 10px 15px 10px 15px;
   font-size: 15px;
   color: #d6d6d6;
   white-space: nowrap;

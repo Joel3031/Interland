@@ -108,6 +108,7 @@
    ========================================= */
 .menu-item-card {
     display: flex;
+    align-items: flex-start;
     gap: 14px;
     padding: 12px 16px; /* Tighter padding inside the card */
     border-radius: 12px;
