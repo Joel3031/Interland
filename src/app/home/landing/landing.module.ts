@@ -8,6 +8,7 @@ import { HomeLandingComponent } from './home-landing/home-landing.component';
 import { PshComponent } from './psh/psh.component';
 import { CorporatebankingComponent } from './corporatebanking/corporatebanking.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeModule } from "../home.module";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LandingRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HomeModule
+]
 })
 export class LandingModule { }

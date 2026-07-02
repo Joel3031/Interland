@@ -1,126 +1,313 @@
-.careers {
-    padding-top: 100px !important;
+/* ============================================================
+   CAREERS PAGE - DARK THEME
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.careers-page {
+    background-color: #081226; /* Interland Dark Navy */
+    color: #CBD5E1;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 100px;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 40px;
+.careers-page *, .careers-page *::before, .careers-page *::after {
+    box-sizing: border-box;
 }
 
-.promote {
-    display: flex;
-    flex-direction: row;
+h1, h2, h3, h4 {
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+p {
+    color: #94A3B8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-.careers .section-title h2 {
-    text-transform: capitalize !important;
+.text-center {
+    text-align: center;
 }
 
-.careers-card {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0;
-    background-color: #fff;
-    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
-    transition: all .5s;
-    cursor: pointer;
+/* =========================================
+   UTILITIES & HEADERS
+   ========================================= */
+.eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3B82F6;
+    margin-bottom: 16px;
+    background: rgba(59, 130, 246, 0.15);
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-.careers-card:hover {
-    transform: scale(1.05);
+.section-header {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
 }
 
-.careers-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 35%;
-    padding: 20px;
-
-    h1 {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0;
-    }
+.section-header h2 {
+    font-size: clamp(32px, 4vw, 42px);
+    margin-bottom: 16px;
 }
 
-.careers-card-body {
-    display: flex;
-    flex-direction: column;
-    width: 65%;
-    padding: 20px;
-
-    p {
-        margin-top: 10px;
-        font-size: 14px;
-        /* line-height: 40px; */
-        font-weight: normal;
-        text-align: justify;
-    }
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.careers-hero {
+    padding: 160px 0 80px; /* Extra top padding for the fixed navbar */
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, #081226 70%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.java-developers {
-    background-color: #0B0D19;
-
-    h1 {
-        color: #fff;
-        text-align: center;
-    }
-
-    img {
-        width: 100%;
-        max-width: 50px;
-    }
+.hero-title {
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
 }
 
-.environment {
-    width: 50% !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 20px;
-
-    img {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 25px;
-    }
-
-    p {
-        font-size: 16px;
-        text-align: center;
-
-    }
+.hero-title span {
+    color: #3B82F6;
 }
 
-#environment {
-    gap: 0px;
+.hero-subtitle {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-#positions {
+/* =========================================
+   2. CULTURE BENTO GRID
+   ========================================= */
+.culture-section {
+    padding: 100px 0;
+}
+
+.bento-grid {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 20px 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
 
-    .careers-card {
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 25px;
-    }
+/* Make the first two cards slightly wider to break the grid up nicely */
+.bento-grid .bento-card:nth-child(1),
+.bento-grid .bento-card:nth-child(2) {
+    grid-column: span 1.5; /* If grid is 3 cols, this requires a specific trick, let's just span appropriately */
+}
 
-    .careers-card-header {
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 5px;
+/* Alternative: Clean auto-fit grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.bento-card {
+    background: #0C1A30;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.icon-box {
+    width: 56px;
+    height: 56px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.bento-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.bento-card p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* =========================================
+   3. OPEN POSITIONS GRID
+   ========================================= */
+.positions-section {
+    padding: 80px 0;
+    background: #060D1A; /* Slightly darker than base to separate sections */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px 40px 0 0;
+}
+
+.job-card:hover {
+    background: #112240;
+    border-color: #3B82F6;
+    transform: translateY(-4px);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.job-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-icon img {
+    max-width: 24px;
+    filter: invert(1); /* Ensures the white worker icon looks sharp */
+}
+
+.dept-tag {
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    color: #CBD5E1;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.job-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #3B82F6;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+.job-card:hover .apply-btn {
+    gap: 12px; /* Arrow slides right on hover */
+}
+
+/* =========================================
+   3. OPEN POSITIONS (EMPTY STATE)
+   ========================================= */
+.positions-section {
+    padding: 80px 0;
+    background: #060D1A; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px 40px 0 0;
+}
+
+.empty-state-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.empty-state-card {
+    background: #0B1629;
+    border: 1px dashed rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 600px;
+    transition: border-color 0.3s ease;
+}
+
+.empty-state-card:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 24px auto;
+}
+
+.empty-state-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.empty-state-card p {
+    font-size: 15px;
+    color: #94A3B8;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-primary-outline {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid #3B82F6;
+    color: #3B82F6;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-outline:hover {
+    background: #3B82F6;
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .careers-hero { padding: 120px 0 60px; }
+    .culture-section, .positions-section { padding: 60px 0; }
+    .hero-title { font-size: 36px; }
+    
+    .jobs-grid {
+        grid-template-columns: 1fr;
     }
 }
