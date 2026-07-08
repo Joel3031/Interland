@@ -1,5 +1,5 @@
 <header id="header" class="fixed-top" [class.header-scrolled]="isScrolled">
-  <div class="container d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
     <div class="logo">
       <a href="index.html" class="black_logo">
         <img src="assets/img/its_logo/Interland_Logo-02.svg" alt="Interland Logo">
@@ -9,9 +9,9 @@
       </a>
     </div>
 
-    <nav id="navbar" class="navbar">
+    <nav id="navbar-desktop" class="navbar desktop-nav">
       <ul>
-        <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" (click)="navigateToHome()">Home</a></li>
 
         <li class="nav-item dropdown dropdown-hover position-static">
           <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#products" id="navbarDropdown1" role="button"
@@ -20,7 +20,6 @@
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown1">
             <div class="dropdown-flex-container">
-
               <div class="menu-sidebar">
                 <div class="sidebar-badge">The Vision</div>
                 <div class="iDesc">
@@ -30,20 +29,9 @@
                   and unlock their absolute growth potential.
                 </div>
               </div>
-
               <div class="menu-content">
                 <div class="menu-grid">
-                  <a href="/Interland/landing/corpratebanking" class="menu-item-card">
-                    <div class="img-container">
-                      <img src="../../../../assets/img/png/Corporate-Internet-Banking.png"
-                        alt="Corporate Internet Banking">
-                    </div>
-                    <div class="card-text-content">
-                      <div class="sub-menu-heading">Corporate Internet Banking</div>
-                    </div>
-                  </a>
-
-                  <a href="/Interland/landing/psh" (click)="navigateToPsh()" class="menu-item-card">
+                  <a (click)="navigateToPsh()" class="menu-item-card">
                     <div class="img-container">
                       <img src="../../../../assets/img/png/psh.png" alt="Payment Service Hub">
                     </div>
@@ -63,46 +51,21 @@
                       </div>
                     </div>
                   </a>
-
-                  <a href="/virtual-account" (click)="navigateToVa()" class="menu-item-card">
-                    <div class="img-container">
-                      <img src="../../../../assets/img/png/va.png" alt="Virtual Account">
-                    </div>
+                  <a (click)="navigateToVa()" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/va.png" alt="Virtual Account"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">Virtual Account</div>
                     </div>
                   </a>
-
-                  <a href="/escrow" (click)="navigateToEscrow()" class="menu-item-card">
-                    <div class="img-container">
-                      <img src="../../../../assets/img/png/escrow-account.png" alt="Escrow Account">
-                    </div>
+                  <a (click)="navigateToEscrow()" class="menu-item-card">
+                    <div class="img-container"><img src="../../../../assets/img/png/escrow-account.png"
+                        alt="Escrow Account"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">Escrow</div>
                     </div>
                   </a>
-
-                  <a href="#" class="menu-item-card">
-                    <div class="img-container">
-                      <img src="../../../../assets/img/png/Digital-Cash-Management.png" alt="Digital Cash Management">
-                    </div>
-                    <div class="card-text-content">
-                      <div class="sub-menu-heading">Digital Cash Management</div>
-                      <div class="points">
-                        <ul>
-                          <li>Virtual Account</li>
-                          <li>Real estate Escrow</li>
-                          <li>Corporate Collection</li>
-                          <li>Host to Host (H2H)</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </a>
-
                   <a href="https://finexus.io/" target="_blank" rel="noopener noreferrer" class="menu-item-card">
-                    <div class="img-container">
-                      <img src="../../../../assets/img/png/BaaS.png" alt="BaaS">
-                    </div>
+                    <div class="img-container"><img src="../../../../assets/img/png/BaaS.png" alt="BaaS"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">BaaS</div>
                       <div class="points">
@@ -116,7 +79,6 @@
                     </div>
                   </a>
                 </div>
-
                 <div class="ecosystem-section">
                   <div class="ecosystem-heading">Ecosystem Products</div>
                   <div class="ecosystem-grid">
@@ -136,41 +98,36 @@
         </li>
 
         <li class="nav-item dropdown dropdown-hover position-static">
-          <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#services" id="navbarDropdown2" role="button"
+          <a data-mdb-dropdown-init class="nav-link dropdown-toggle" id="navbarDropdown2" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Services
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown2">
             <div class="dropdown-flex-container">
-
               <div class="menu-sidebar">
                 <div class="sidebar-badge">Capabilities</div>
                 <div class="iDesc">
                   Empowering modern financial networks through cutting-edge orchestration engines, advanced data
-                  normalization, and high-performance routing infrastructures. We deliver robust operational
-                  capabilities that seamlessly bridge legacy banking systems with next-generation open finance
-                  frameworks, enabling organizations to scale transaction volumes securely, autonomously, and with
-                  absolute technical precision.
+                  normalization, and high-performance routing infrastructures.
                 </div>
               </div>
-
               <div class="menu-content">
                 <div class="menu-grid">
-                  <a href="" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/IaaS.png" alt="IaaS"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">SaaS Infrastructure (IaaS)</div>
                       <p>Offers online applications and provides the infrastructure to build and manage them.</p>
                     </div>
                   </a>
-                  <a href="" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/SaaS.png" alt="SaaS"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">PSH SaaS Service</div>
                       <p>Offers scalable, cloud-based payment solutions for businesses.</p>
                     </div>
                   </a>
-                  <a href="https://nexusglobal.sa/services/devops" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/Cloud-Devops-Services.png"
                         alt="Cloud DevOps"></div>
                     <div class="card-text-content">
@@ -178,21 +135,21 @@
                       <p>Streamline development and operations through automation and cloud solutions.</p>
                     </div>
                   </a>
-                  <a href="" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/FaaS.png" alt="FaaS"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">Fintech as a Service (FaaS)</div>
                       <p>Delivers financial technology solutions via the cloud.</p>
                     </div>
                   </a>
-                  <a href="" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/NaaS.png" alt="NaaS"></div>
                     <div class="card-text-content">
                       <div class="sub-menu-heading">NeoBank as a Service (NaaS)</div>
                       <p>Provides cloud-based digital banking solutions for financial institutions.</p>
                     </div>
                   </a>
-                  <a href="" class="menu-item-card">
+                  <a class="menu-item-card-service">
                     <div class="img-container"><img src="../../../../assets/img/png/Blockchain.png" alt="Blockchain">
                     </div>
                     <div class="card-text-content">
@@ -206,7 +163,7 @@
           </div>
         </li>
 
-        <li><a class="nav-link scrollto" href="/Interland/landing/careers" (click)="navigateToCareers()">Careers</a>
+        <li><a class="nav-link scrollto" (click)="navigateToCareers()">Careers</a>
         </li>
 
         <li class="nav-item dropdown dropdown-hover position-static">
@@ -216,7 +173,6 @@
           </a>
           <div id="sub-menu" class="dropdown-menu" aria-labelledby="navbarDropdown3">
             <div class="dropdown-flex-container">
-
               <div class="menu-sidebar">
                 <div class="sidebar-badge">Insights</div>
                 <div class="iDesc">
@@ -224,7 +180,6 @@
                   leverage our expertise, and achieve remarkable success with our exceptional support.
                 </div>
               </div>
-
               <div class="menu-content blog-content">
                 <a href="https://www.linkedin.com/company/sentinel360s/posts/?feedView=all" target="_blank"
                   rel="noopener noreferrer" class="blog-link">
@@ -232,7 +187,7 @@
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                       viewBox="0 0 1408.2 1144.3" xml:space="preserve">
                       <path class="st0"
-                        d="M922.7,149v56.1H595.5c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2s27.5,61.2,61.2,61.2 c22.9,0,42.8-12.6,53.3-31.3h327.2v208.7H744L600.1,326.1h-240c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2 c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h214.7l143.9,147.6h204v62.2H171.4c-10.5-18.6-30.5-31.3-53.3-31.3 c-33.8,0-61.2,27.5-61.2,61.2c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h751.3v48.6H786.8L629.3,860.6H413.4 c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2c0,33.7,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3H654 l157.5-156.5h111.3v212.6c236.2-137.7,314.5-253.4,314.5-449s0-341.1,0-341.1C1040,139.6,922.7,149,922.7,149z M542.2,264.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C571.7,251.3,558.4,264.6,542.2,264.6z M306.8,385.6 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C336.4,372.3,323.1,385.6,306.8,385.6z M118.1,655.2 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5S134.3,655.2,118.1,655.2z M360,920.1 c-16.3,0-29.5-13.2-29.5-29.5s13.2-29.5,29.5-29.5s29.5,13.2,29.5,29.5C389.5,906.9,376.3,920.1,360,920.1z">
+                        d="M922.7,149v56.1H595.5c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2s27.5,61.2,61.2,61.2 c22.9,0,42.8-12.6,53.3-31.3h327.2v208.7H744L600.1,326.1h-240c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2 c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h214.7l143.9,147.6h204v62.2H171.4c-10.5-18.6-30.5-31.3-53.3-31.3 c-33.8,0-61.2,27.5-61.2,61.2c0,33.8,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3h751.3v48.6H786.8L629.3,860.6H413.4 c-10.5-18.6-30.5-31.3-53.3-31.3c-33.8,0-61.2,27.5-61.2,61.2c0,33.7,27.5,61.2,61.2,61.2c22.9,0,42.8-12.6,53.3-31.3H654 l157.5-156.5h111.3v212.6c236.2-137.7,314.5-253.4,314.5-449s0-341.1,0-341.1C1040,139.6,922.7,149,922.7,149z">
                       </path>
                       <path class="st2"
                         d="M920.5,120.9c5-0.4,124.1-9.2,323.2,38.2l21.6,5.2v363.3c0,208.2-100.1,338.8-342.6,480.1l-28.2-15.8 c-25.6-15.8-69.2-45.4-133.8-97.4l-61.8,58.7c0,0,72,70.4,223.7,151.8c147.1-86,422.4-222.2,422.4-552.3s0-449,0-449 s-132.9-64.2-422.3-64.2c-179.9,0-348.1,31.3-425.9,68.8V120c0,0,87.2-24.2,125.5,28.2C622.3,148.2,769,120.9,920.5,120.9z">
@@ -241,20 +196,72 @@
                   </div>
                   <b>Sentinel 360</b>
                 </a>
-                <p>
-                  Cyber security doesn't have to be expensive. At our company, we offer top-tier open-source security
-                  solutions at a fraction of the cost – just 1/10th of the price of traditional options. Protect your
-                  digital assets without breaking the bank. With tailored solutions and unwavering dedication, we're
-                  committed to safeguarding your digital assets and preserving your peace of mind. Join us in building a
-                  safer tomorrow, today.
-                </p>
               </div>
             </div>
           </div>
         </li>
-        <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
       </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
+
+    <i class="bi mobile-nav-toggle d-lg-none" [ngClass]="mobileMenuOpen ? 'bi-x' : 'bi-list'"
+      (click)="toggleMobile()"></i>
+
+    <div class="mobile-nav-wrapper d-lg-none" [class.show]="mobileMenuOpen">
+      <ul class="mobile-nav-list">
+        <li><a class="nav-link" (click)="navigateToHome()">Home</a></li>
+
+        <li class="mobile-dropdown">
+          <a class="nav-link" (click)="toggleDropdown('products', $event)"
+            [class.active-link]="openDropdown === 'products'">
+            Products
+            <i class="bi bi-chevron-down ms-auto" [class.rotated]="openDropdown === 'products'"></i>
+          </a>
+          <div class="mobile-dropdown-menu" [class.show]="openDropdown === 'products'">
+            <a (click)="navigateToPsh()">Payment Service Hub</a>
+            <a (click)="navigateToVa()">Virtual Account</a>
+            <a (click)="navigateToEscrow()">Escrow</a>
+            <a href="https://finexus.io/" target="_blank">BaaS</a>
+
+            <div class="mobile-sub-heading mt-3">Ecosystem Products</div>
+            <a href="https://www.finexus.io/" target="_blank">Finexus</a>
+            <a href="https://nexusglobal.sa/products/payzo-books" target="_blank">Payzo Books</a>
+            <a href="https://payzohr.com/landing" target="_blank">Payzo HR</a>
+            <a href="https://nexusglobal.sa/products/rhevira" target="_blank">Rhevira</a>
+            <a href="https://nexusglobal.sa/products/mithqal" target="_blank">Mithqal</a>
+            <a href="https://growk.io/" target="_blank">GrowK</a>
+            <a href="https://www.sentinel360.org/" target="_blank">Sentinel 360</a>
+          </div>
+        </li>
+
+        <!-- <li class="mobile-dropdown">
+          <a class="nav-link" (click)="toggleDropdown('services', $event)"
+            [class.active-link]="openDropdown === 'services'">
+            Services
+            <i class="bi bi-chevron-down ms-auto" [class.rotated]="openDropdown === 'services'"></i>
+          </a>
+          <div class="mobile-dropdown-menu" [class.show]="openDropdown === 'services'">
+            <a href="#">SaaS Infrastructure (IaaS)</a>
+            <a href="#">PSH SaaS Service</a>
+            <a href="https://nexusglobal.sa/services/devops">Cloud DevOps Services</a>
+            <a href="#">Fintech as a Service (FaaS)</a>
+            <a href="#">NeoBank as a Service (NaaS)</a>
+            <a href="#">BlockChain</a>
+          </div>
+        </li> -->
+
+        <li><a class="nav-link" (click)="navigateToCareers()">Careers</a></li>
+
+        <!-- <li class="mobile-dropdown">
+          <a class="nav-link" (click)="toggleDropdown('blogs', $event)" [class.active-link]="openDropdown === 'blogs'">
+            Blogs
+            <i class="bi bi-chevron-down ms-auto" [class.rotated]="openDropdown === 'blogs'"></i>
+          </a>
+          <div class="mobile-dropdown-menu" [class.show]="openDropdown === 'blogs'">
+            <a href="https://www.linkedin.com/company/sentinel360s/posts/?feedView=all" target="_blank">Sentinel 360</a>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+
   </div>
 </header>

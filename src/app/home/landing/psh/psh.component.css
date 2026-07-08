@@ -816,108 +816,216 @@ button { font-family: var(--psh-font-body); cursor: pointer; }
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET (≤ 1024px)
+   10. PREMIUM MOBILE & TABLET OPTIMIZATION
    ============================================================ */
 @media (max-width: 1024px) {
-  .psh__hero-layout         { grid-template-columns: 1fr; }
-  .psh__hero-visual         { display: none; }
-  .psh__hero-stats          { grid-template-columns: repeat(2, 1fr); }
-  .psh__hero-stat           { padding: 16px 0; border-right: none; border-bottom: 1px solid var(--psh-border-dk); }
-  .psh__hero-stat:nth-child(odd)  { border-right: 1px solid var(--psh-border-dk); padding-left: 0; }
-  .psh__hero-stat:nth-child(3),
-  .psh__hero-stat:nth-child(4)    { border-bottom: none; }
-  .psh__split               { grid-template-columns: 1fr; gap: 40px; }
-  .psh__split--reverse      { direction: ltr; }
-  .psh__img-frame           { position: static; }
-  .psh__dark-frame          { position: static; }
-  .psh__card-grid--3        { grid-template-columns: repeat(2, 1fr); }
-  .psh__liq-stats           { grid-template-columns: repeat(2, 1fr); }
-  .psh__bundle-grid--wide   { grid-template-columns: repeat(2, 1fr); }
+  /* Converts the grid into a flex container and reverses the order 
+     so the SVG Image (2nd in HTML) appears ABOVE the Text (1st in HTML) */
+  .psh__hero-layout { 
+    display: flex; 
+    flex-direction: column-reverse; 
+    gap: 30px; 
+  }
+  
+  .psh__hero-visual { justify-content: center; }
+  .psh__split { grid-template-columns: 1fr; gap: 40px; }
+  /* Resets RTL to normal stacking on smaller screens */
+  .psh__split--reverse { direction: ltr; } 
+  .psh__split--reverse > * { direction: ltr; }
+  .psh__img-frame, .psh__dark-frame { position: relative; top: 0; }
 }
 
-/* ============================================================
-   RESPONSIVE — MOBILE (≤ 768px)
-   ============================================================ */
 @media (max-width: 768px) {
-  .psh__section  { padding: 72px 0; }
-  .psh__hero     { padding: 64px 0 48px; min-height: auto; }
+  /* 1. Global Spacing & Typography */
+  .psh__section { padding: 60px 0 !important; }
+  .psh__hero { padding: 120px 0 50px !important; min-height: auto; }
+  .psh__hero-title { font-size: 34px !important; margin-bottom: 15px !important;}
+  .psh__section-head { margin-bottom: 30px !important; }
+  .psh__section-head h2 { font-size: 26px !important; line-height: 1.3 !important; }
+  .psh__section-head p { font-size: 15px !important; }
 
-  .psh__hero-title    { font-size: 36px; letter-spacing: -1px; }
-  .psh__hero-lead     { font-size: 15px; }
-  .psh__hero-cta      { flex-direction: column; }
+  /* 2. Hero Section - SVG Image Perfectly Scaled & Centered */
+  .psh__hero-visual { 
+    display: flex !important; 
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    justify-content: center;
+  }
+  
+  /* Forces the SVG to scale down to fit the phone screen seamlessly */
+  .psh__rail-svg { 
+    width: 100% !important; 
+    max-width: 450px !important; 
+    height: auto !important; 
+  }
 
-  .psh__hero-stats    { grid-template-columns: 1fr 1fr; }
-  .psh__hero-stat     { padding: 14px 0; }
-  .psh__hero-stat:nth-child(odd)  { border-right: 1px solid var(--psh-border-dk); }
-  .psh__hero-stat:nth-child(1),
-  .psh__hero-stat:nth-child(2)    { border-bottom: 1px solid var(--psh-border-dk); }
+  /* 3. Hero Stats Grid */
+  .psh__hero-stats { 
+    grid-template-columns: 1fr 1fr !important; 
+    border-top: none !important; 
+    gap: 12px; 
+    padding-top: 30px;
+  }
+  .psh__hero-stat { 
+    border: 1px solid var(--psh-border-dk) !important; 
+    padding: 15px !important; 
+    border-radius: 12px; 
+    background: rgba(255,255,255,0.02);
+  }
 
-  .psh__section-head          { margin-bottom: 40px; }
-  .psh__section-head h2       { font-size: 26px; }
-  .psh__section-head p        { font-size: 15px; }
+  /* 4. Native Horizontal Swipe Cards */
+  .psh__card-grid, .psh__glass-stack, .psh__bundle-grid, .psh__bundle-grid--wide {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 15px !important;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 10px 4vw 20px 4vw !important; /* Bottom padding prevents shadow clipping */
+  }
+  
+  .psh__card-grid::-webkit-scrollbar, 
+  .psh__glass-stack::-webkit-scrollbar, 
+  .psh__bundle-grid::-webkit-scrollbar, 
+  .psh__bundle-grid--wide::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+  .psh__card, .psh__glass-card, .psh__bundle-card {
+    flex: 0 0 85% !important; 
+    max-width: 85% !important;
+    height: auto;
+  }
 
-  .psh__card-grid--3          { grid-template-columns: 1fr; }
-  .psh__liq-stats             { grid-template-columns: 1fr 1fr; }
+  .psh__glass-card { align-items: flex-start; flex-direction: column; }
 
-  .psh__bundle-tabs           { grid-template-columns: 1fr; }
-  .psh__bundle-grid           { grid-template-columns: 1fr; }
-  .psh__bundle-grid--wide     { grid-template-columns: 1fr; }
+  /* 5. Compact 2x2 Liquidity Stats */
+  .psh__liq-stats { grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
+  .psh__liq-stat { padding: 15px !important; }
+  .psh__liq-stat-value { font-size: 22px !important; }
 
-  .psh__platform-frame        { padding: 16px; border-radius: 16px; }
+  /* 6. Tabs Adjustment */
+  .psh__bundle-tabs { grid-template-columns: 1fr !important; gap: 10px !important; margin-bottom: 20px !important; }
+  .psh__bundle-tab { padding: 12px 15px !important; }
 }
 
 /* ============================================================
-   RESPONSIVE — SMALL MOBILE (≤ 480px)
-   ============================================================ */
-@media (max-width: 480px) {
-  .psh__hero-stats        { grid-template-columns: 1fr; }
-  .psh__hero-stat         { border-right: none; border-bottom: 1px solid var(--psh-border-dk); }
-  .psh__hero-stat:last-child { border-bottom: none; }
-  .psh__liq-stats         { grid-template-columns: 1fr; }
-}
-
-/* ============================================================
-   REDUCED MOTION
+   REDUCED MOTION (Preserved)
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .psh__rail-line,
-  .psh__rail-out--1,
-  .psh__rail-out--2,
-  .psh__rail-out--3,
-  .psh__rail-out--4,
-  .psh__hub-pulse  { animation: none; }
-  .psh__card,
-  .psh__glass-card,
-  .psh__bundle-card,
-  .psh__liq-stat,
-  .psh__bundle-tab,
-  .psh__feat-item  { transition: none; }
+  .psh__rail-line, .psh__rail-out--1, .psh__rail-out--2,
+  .psh__rail-out--3, .psh__rail-out--4, .psh__hub-pulse { animation: none; }
+  .psh__card, .psh__glass-card, .psh__bundle-card,
+  .psh__liq-stat, .psh__bundle-tab, .psh__feat-item { transition: none; }
 }
 
 /* =========================================
-   10. LOGO VISIBILITY LOGIC
+   11. LOGO VISIBILITY LOGIC (Preserved)
    ========================================= */
-/* 02.svg (.black_logo) is actually the bright/white asset. Display it by default. */
-.logo{
-  width: 160px;
-  height: auto;
-}
-.logo .black_logo {
-    display: block !important;
+.logo { width: 160px; height: auto; }
+.logo .black_logo { display: block !important; }
+.logo .white_logo { display: none !important; }
+#header.bg-white .logo .black_logo, #header.header-scrolled-white .logo .black_logo { display: none !important; }
+#header.bg-white .logo .white_logo, #header.header-scrolled-white .logo .white_logo { display: block !important; }
+
+@media (max-width: 768px) {
+  /* 1. Global Spacing & Typography */
+  .psh__section { padding: 60px 0 !important; }
+  .psh__hero { padding: 120px 0 50px !important; min-height: auto; }
+  .psh__hero-title { font-size: 34px !important; }
+  .psh__section-head { margin-bottom: 30px !important; }
+  .psh__section-head h2 { font-size: 26px !important; line-height: 1.3 !important; }
+  .psh__section-head p { font-size: 15px !important; }
+
+  /* 2. Hero Section - Recovering the hidden SVG */
+  .psh__hero-visual { 
+    display: flex !important; 
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Breaks out of container to hit screen edges */
+    margin-right: calc(-50vw + 50%);
+    padding: 0 4vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .psh__hero-visual::-webkit-scrollbar { display: none; }
+  .psh__rail-svg { width: 275px !important; max-width: none !important; }
+
+  /* 3. Hero Stats Grid */
+  .psh__hero-stats { 
+    grid-template-columns: 1fr 1fr !important; 
+    border-top: none !important; 
+    gap: 12px; 
+    padding-top: 20px;
+  }
+  .psh__hero-stat { 
+    border: 1px solid var(--psh-border-dk) !important; 
+    padding: 15px !important; 
+    border-radius: 12px; 
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* 4. Native Horizontal Swipe Cards (Replaces endless vertical scroll) */
+  .psh__card-grid, .psh__glass-stack, .psh__bundle-grid, .psh__bundle-grid--wide {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 15px !important;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 10px 4vw 20px 4vw !important; /* Bottom padding prevents shadow clipping */
+  }
+  
+  .psh__card-grid::-webkit-scrollbar, 
+  .psh__glass-stack::-webkit-scrollbar, 
+  .psh__bundle-grid::-webkit-scrollbar, 
+  .psh__bundle-grid--wide::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+  .psh__card, .psh__glass-card, .psh__bundle-card {
+    flex: 0 0 85% !important; /* Takes up 85% of screen, allowing the next card to peek out */
+    max-width: 85% !important;
+    height: auto;
+  }
+
+  .psh__glass-card { align-items: flex-start; flex-direction: column; }
+
+  /* 5. Compact 2x2 Liquidity Stats */
+  .psh__liq-stats { grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
+  .psh__liq-stat { padding: 15px !important; }
+  .psh__liq-stat-value { font-size: 22px !important; }
+
+  /* 6. Tabs Adjustment */
+  .psh__bundle-tabs { grid-template-columns: 1fr !important; gap: 10px !important; margin-bottom: 20px !important; }
+  .psh__bundle-tab { padding: 12px 15px !important; }
 }
 
-.logo .white_logo {
-    display: none !important;
+/* ============================================================
+   REDUCED MOTION (Preserved)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .psh__rail-line, .psh__rail-out--1, .psh__rail-out--2,
+  .psh__rail-out--3, .psh__rail-out--4, .psh__hub-pulse { animation: none; }
+  .psh__card, .psh__glass-card, .psh__bundle-card,
+  .psh__liq-stat, .psh__bundle-tab, .psh__feat-item { transition: none; }
 }
 
-/* IF your header eventually turns solid white on scroll, 
-   this block ensures the dark logo takes over. */
-#header.bg-white .logo .black_logo,
-#header.header-scrolled-white .logo .black_logo {
-    display: none !important;
-}
-
-#header.bg-white .logo .white_logo,
-#header.header-scrolled-white .logo .white_logo {
-    display: block !important;
-}
+/* =========================================
+   11. LOGO VISIBILITY LOGIC (Preserved)
+   ========================================= */
+.logo { width: 160px; height: auto; }
+.logo .black_logo { display: block !important; }
+.logo .white_logo { display: none !important; }
+#header.bg-white .logo .black_logo, #header.header-scrolled-white .logo .black_logo { display: none !important; }
+#header.bg-white .logo .white_logo, #header.header-scrolled-white .logo .white_logo { display: block !important; }

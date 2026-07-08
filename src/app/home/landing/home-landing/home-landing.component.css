@@ -1964,3 +1964,936 @@
     font-size: 24px;
   }
 }
+
+/* =========================================
+   PREMIUM MOBILE OPTIMIZATION (Max Width: 767px)
+   ========================================= */
+/* ============================================================
+   HOME LANDING — MOBILE STYLESHEET
+   INSTRUCTIONS: Append this entire file to the end of
+   home-landing.component.css, replacing the existing
+   @media (max-width: 767px) block (lines ~1968–2206).
+   ============================================================
+
+   PRINCIPLES APPLIED
+   ──────────────────
+   • 48 px minimum touch targets (WCAG 2.5.5)
+   • scroll-snap for all swipe carousels
+   • :active replaces :hover (touch has no hover)
+   • 16 px minimum body font (prevents iOS auto-zoom on inputs)
+   • 100svh instead of 100vh (excludes mobile browser chrome)
+   • env(safe-area-inset-*) for notched / Dynamic Island phones
+   • animation: none for reduced-motion users
+   • Developer Hub carousel: absolute+animation → native snap-scroll
+   • Promises section: 50%-width grid → full-width single column
+   • No !important except where overriding inline styles
+   ============================================================ */
+
+
+/* ──────────────────────────────────────────────────────────
+   0. GLOBAL MOBILE FOUNDATIONS
+────────────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    /* 16px base prevents iOS auto-zoom on focused inputs */
+    font-size: 16px;
+  }
+
+  /* Smooth scrolling for anchor jumps */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Remove blue tap highlight on Android Chrome */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Global section rhythm — tighter than desktop */
+  section {
+    padding: 52px 0 !important;
+  }
+
+  /* Section title defaults */
+  .section-title {
+    margin-bottom: 32px;
+    padding: 0 20px;
+  }
+
+  .section-title h2 {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px;
+  }
+
+  .section-title p {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Disable scale hover on all cards — no hover on touch */
+  .box:hover,
+  .promise-card:hover,
+  .clients-card:hover,
+  .simplification:hover,
+  .modify:hover,
+  .scalable:hover {
+    transform: none !important;
+  }
+
+  /* Replace hover with :active for tactile feedback */
+  .box:active,
+  .promise-card:active,
+  .clients-card:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.1s ease !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     1. HERO SECTION
+     Changes:
+     • Override inline margin-top: 150px → 80px
+     • Stack columns: text first, animation below
+     • Scale down the animated squares for the smaller canvas
+     • 100svh respects mobile browser chrome
+  ────────────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100svh;
+    /* Safe area padding for notched phones */
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+  }
+
+  #hero .container {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  #hero .row {
+    flex-direction: column !important;
+  }
+
+  /*
+    The columns have inline style="margin-top: 150px".
+    We need !important to override inline styles — it's
+    justified and contained only to these two rules.
+  */
+  #hero .col-lg-6:first-of-type {
+    order: 1;
+    text-align: left;
+    padding-bottom: 180px;
+  }
+
+  #hero .hero-img {
+    margin-top: 16px !important;
+    order: 2;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #hero h1 {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+  }
+
+  #hero ul {
+    padding: 0;
+    margin: 0 0 24px;
+  }
+
+  #hero ul li {
+    font-size: 15px !important;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.55;
+  }
+
+  /* Scale down animated squares to fit without overflow */
+  .parent {
+    height: 220px !important;
+    transform: scale(0.6);
+    transform-origin: center center;
+  }
+
+  /* Kill particle canvas on mobile — saves battery & CPU */
+  .footer-particles-container {
+    display: none;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     2. WHY US — Horizontal Snap-Scroll Cards
+     Changes:
+     • flex-nowrap + overflow-x + scroll-snap (swipeable)
+     • Cards: 84% width, snap-align center
+     • Removes vertical stacking (no pagination needed)
+  ────────────────────────────────────────────────────────── */
+  #why-us {
+    overflow: hidden; /* clip overflow of card peek */
+  }
+
+  #why-us .container {
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  #why-us .row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 14px;
+    padding: 8px 20px 28px !important;
+    margin: 0 !important;
+    align-items: stretch;
+  }
+
+  #why-us .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Ghost element creates end-padding after the last card */
+  #why-us .row::after {
+    content: '';
+    flex: 0 0 6px;
+  }
+
+  #why-us .col-lg-3 {
+    flex: 0 0 84% !important;
+    max-width: 84% !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    scroll-snap-align: center;
+  }
+
+  #why-us .box {
+    height: 100%;
+    padding: 28px 24px;
+    margin-bottom: 0;
+    border-radius: 14px;
+  }
+
+  #why-us .box span {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  #why-us .box h4 {
+    font-size: 17px !important;
+    margin-bottom: 10px;
+  }
+
+  #why-us .box p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     3. COUNTS — 2 × 3 grid (5th item centred)
+     Changes:
+     • CSS grid replaces Bootstrap flex
+     • Large stat values lead each card
+     • Consistent card heights
+  ────────────────────────────────────────────────────────── */
+  #counts {
+    padding: 48px 0 !important;
+  }
+
+  #counts .container {
+    padding: 0 16px;
+  }
+
+  #counts .row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0 !important;
+    padding: 0;
+  }
+
+  #counts .col-lg-20 {
+    width: 100% !important;
+    margin-top: 0 !important;
+    padding: 0;
+  }
+
+  /* 5th stat spans both columns — centred */
+  #counts .col-lg-20:last-child {
+    grid-column: span 2;
+    max-width: 50%;
+    margin: 0 auto;
+    width: 100% !important;
+  }
+
+  .count-box {
+    padding: 22px 14px !important;
+    margin-bottom: 0 !important;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .count-box i {
+    font-size: 26px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* The counter number is the hero — make it prominent */
+  .count-box span {
+    font-size: 34px !important;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .count-box p {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    opacity: 0.75;
+    margin: 0;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     4. DEVELOPER HUB
+     Changes:
+     • Toggle: 48 px touch-friendly height
+     • Logo carousel: absolute+animation → native snap-scroll
+     • Description carousel: absolute+animation → stacked list
+     Both transforms are CSS-only (no JS / HTML changes needed).
+  ────────────────────────────────────────────────────────── */
+  #developer {
+    padding: 48px 0 !important;
+  }
+
+  #developer .section-title {
+    padding: 0 20px;
+    margin-bottom: 24px;
+  }
+
+  #developer h2 {
+    font-size: 24px !important;
+    margin-bottom: 0;
+  }
+
+  #developer h3 {
+    font-size: 15px !important;
+    margin-top: 14px;
+    padding: 0 20px;
+    opacity: 0.8;
+  }
+
+  /* Tab toggle — full-width with 48 px minimum height */
+  .tabSection {
+    padding: 0 20px;
+    margin-bottom: 28px;
+  }
+
+  .toggleTab {
+    width: 100%;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 14px;
+  }
+
+  .toggle {
+    height: 44px;
+    width: calc(50% - 3px);
+    border-radius: 12px;
+  }
+
+  .tab-heading {
+    font-size: 16px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── LOGO CAROUSEL → native snap-scroll ──────────────── */
+  /*
+    The carousel uses position:absolute + CSS keyframe animation.
+    Overriding position to relative and animation to none
+    makes all items render normally in flow. We then make the
+    parent a flex row with overflow-x scroll.
+  */
+  .wrapper {
+    display: block !important;
+    overflow: hidden;
+  }
+
+  .carousel {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 110px;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 8px 20px 16px !important;
+    justify-content: flex-start !important;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* End-spacer */
+  .carousel::after {
+    content: '';
+    flex: 0 0 8px;
+    display: block;
+  }
+
+  /* Individual logo cards — 2 per screen, snap to center */
+  .carousel__item,
+  .carousel__item_1 {
+    position: relative !important;
+    flex: 0 0 40% !important;
+    width: 40% !important;
+    height: 96px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    scroll-snap-align: center;
+    border-radius: 12px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff;
+    padding: 10px !important;
+    transform: none !important;
+    filter: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0 !important;
+  }
+
+  .carousel__item-body {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 6px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .image-size {
+    width: 48px !important;
+    height: 48px !important;
+    object-fit: contain;
+  }
+
+  .carousel__item-body p {
+    font-size: 11px !important;
+    color: #333 !important;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  /* ── DESCRIPTION CAROUSEL → stacked readable list ─────── */
+  /*
+    Same principle: kill absolute+animation, make items visible
+    in a vertical list. Each one becomes a compact info row.
+  */
+  .wrapper.mt-5 {
+    margin-top: 16px !important;
+    padding: 0 20px;
+  }
+
+  .carousel-desc {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px;
+  }
+
+  .carousel-desc-item,
+  .carousel-desc-item_1 {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 14px 16px !important;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex !important;
+    align-items: center;
+    transform: none !important;
+  }
+
+  .carousel-desc-item-body {
+    width: 100%;
+    height: auto;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .carousel-desc-item-body p {
+    font-size: 13px !important;
+    text-align: left !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     5. PROMISES — Full-width single column
+     Changes:
+     • The desktop layout has wrapper justify-content:end
+       and wrapper-items width:50% (right-aligned half-page grid)
+     • On mobile: full-width, single-column, natural flow
+  ────────────────────────────────────────────────────────── */
+  #promises {
+    padding: 48px 0 !important;
+    background-position: 70% center; /* shift bg so it's visible */
+  }
+
+  #promises .section-title {
+    padding: 0 20px;
+  }
+
+  #promises .section-title h2 {
+    font-size: 22px !important;
+  }
+
+  /* Kill the desktop right-align container */
+  #promises .container .wrapper {
+    display: block !important;
+    padding: 0 20px;
+  }
+
+  /* Full-width, single-column grid */
+  #promises .container .wrapper .wrapper-items {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 0;
+    display: grid !important;
+  }
+
+  .promise-card {
+    padding: 22px 20px !important;
+    border-radius: 12px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 14px;
+  }
+
+  /* Number badge as a column anchor */
+  .promise-card .promise-card-header {
+    flex-shrink: 0;
+  }
+
+  .promise-card .promise-card-header h1 {
+    font-size: 14px !important;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  .promise-card .promise-card-body {
+    flex: 1;
+  }
+
+  .promise-card .promise-card-body p {
+    font-size: 13px !important;
+    margin-top: 6px !important;
+    line-height: 1.55 !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     6. PRODUCTS & SERVICES (#features)
+     Changes:
+     • Category tabs: horizontal scroll, no gap blowout
+     • Service pills: full-width touch targets (52 px height)
+     • Detail box: no horizontal padding bleed
+  ────────────────────────────────────────────────────────── */
+  #features {
+    padding: 48px 0 !important;
+  }
+
+  #features .section-title {
+    padding: 0 20px;
+  }
+
+  /* Category tabs — horizontal scroll, no wrap */
+  .category-tabs {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    padding: 0 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    padding: 14px 22px !important; /* 48 px total with font */
+    font-size: 15px !important;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Service pills — full-width column */
+  .service-pills {
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    justify-content: stretch !important;
+  }
+
+  .service-pill {
+    width: 100% !important;
+    min-height: 52px !important;
+    padding: 0 20px !important;
+    justify-content: flex-start !important;
+    font-size: 15px !important;
+    border-radius: 12px !important;
+    gap: 14px !important;
+  }
+
+  .service-pill i {
+    font-size: 20px;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .service-pill:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Detail content box */
+  .detail-box-container {
+    margin: 0 20px !important;
+    padding: 24px 20px !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  .detail-content h3 {
+    font-size: 21px !important;
+    line-height: 1.3;
+    margin-bottom: 12px !important;
+  }
+
+  .detail-content h4 {
+    font-size: 15px !important;
+    margin-top: 22px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .detail-content p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .detail-content ul {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    padding-left: 16px;
+  }
+
+  .detail-content li {
+    margin-bottom: 8px !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────
+     7. CLIENTS — 2-column grid
+     Changes:
+     • Flex-wrap → CSS grid (predictable, no orphan columns)
+     • Cards: column layout, image above name
+     • Minimum readable name size
+  ────────────────────────────────────────────────────────── */
+  #clients {
+    padding: 48px 0 !important;
+  }
+
+  #clients .section-title {
+    padding: 0 20px;
+  }
+
+  #clients .wrapper-items {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    padding: 0 16px !important;
+    justify-items: stretch;
+  }
+
+  /* Each item fills its cell fully */
+  #clients .wrapper-items .clients-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    display: block;
+  }
+
+  .clients-card {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 18px 12px !important;
+    gap: 10px;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  .client-img {
+    width: 56px !important;
+    height: 56px !important;
+    aspect-ratio: 1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .client-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .client-name {
+    width: 100% !important;
+    padding-left: 0 !important;
+    justify-content: center !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .client-name h2 {
+    font-size: 13px !important;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+} /* ── end @media (max-width: 767px) ── */
+
+
+/* ──────────────────────────────────────────────────────────
+   SMALL PHONES  (≤ 430px — iPhone SE, Galaxy A series, etc.)
+   Fine-tuning for the most constrained viewport
+────────────────────────────────────────────────────────── */
+@media (max-width: 430px) {
+
+  #hero h1 {
+    font-size: 25px !important;
+  }
+
+  /* Slightly wider swipe cards so they fill narrow screens better */
+  #why-us .col-lg-3 {
+    flex: 0 0 88% !important;
+    max-width: 88% !important;
+  }
+
+  /* 2 logo cards side-by-side still fits at 430 px.
+     Below 380 px we switch to 1 per screen. */
+  .carousel__item,
+  .carousel__item_1 {
+    flex: 0 0 46% !important;
+    width: 46% !important;
+  }
+
+  /* Counts: keep 2 columns but make numbers fit */
+  .count-box span {
+    font-size: 28px !important;
+    letter-spacing: -0.5px;
+  }
+
+  /* Detail box: reduce horizontal margin */
+  .detail-box-container {
+    margin: 0 12px !important;
+    padding: 20px 16px !important;
+  }
+
+  .service-pills {
+    padding: 0 12px;
+  }
+
+  .category-tabs {
+    padding: 0 12px;
+  }
+
+  #promises .container .wrapper {
+    padding: 0 12px;
+  }
+
+  #clients .wrapper-items {
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+
+  /* Promise cards: column layout (not row) on very small screens */
+  .promise-card {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+}
+
+
+/* ──────────────────────────────────────────────────────────
+   VERY SMALL PHONES  (≤ 380px — Galaxy A01, older budget phones)
+────────────────────────────────────────────────────────── */
+@media (max-width: 380px) {
+
+  #hero h1 {
+    font-size: 22px !important;
+  }
+
+  /* 1 logo card per screen on very small phones */
+  .carousel__item,
+  .carousel__item_1 {
+    flex: 0 0 80% !important;
+    width: 80% !important;
+  }
+
+  /* Switch clients to single column */
+  #clients .wrapper-items {
+    grid-template-columns: 1fr !important;
+  }
+
+  .count-box span {
+    font-size: 26px !important;
+  }
+
+  /* 5th count item: full span, no 50% constraint */
+  #counts .col-lg-20:last-child {
+    max-width: 100% !important;
+  }
+
+}
+
+
+/* ──────────────────────────────────────────────────────────
+   REDUCED MOTION
+   Respects the OS-level "Reduce Motion" accessibility setting.
+   Kills all animations and transitions.
+────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  .square,
+  .square:nth-child(2),
+  .square:nth-child(3) {
+    animation: none !important;
+  }
+
+  /* The carousel items are already animation: none on mobile,
+     but this catches desktop too */
+  .carousel__item,
+  .carousel__item_1,
+  .carousel-desc-item,
+  .carousel-desc-item_1 {
+    animation: none !important;
+    -webkit-animation: none !important;
+    transition: none !important;
+  }
+
+  .card-1,
+  .card-2,
+  .card-3 {
+    animation: none !important;
+  }
+
+  .logo img {
+    animation: none !important;
+  }
+
+  .toggle {
+    transition: none !important;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+}
+
+/* =========================================
+   CLIENTS MOBILE TOGGLE BUTTON
+   ========================================= */
+.btn-view-clients {
+    background-color: rgba(200, 76, 76, 0.1);
+    color: #c84c4c;
+    border: 1px solid rgba(200, 76, 76, 0.5);
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-view-clients:hover, 
+.btn-view-clients:active {
+    background-color: #c84c4c;
+    color: #ffffff;
+    border-color: #c84c4c;
+}
+
+.btn-view-clients i {
+    font-size: 16px;
+    font-weight: bold;
+}

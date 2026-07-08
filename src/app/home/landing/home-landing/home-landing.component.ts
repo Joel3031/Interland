@@ -85,6 +85,7 @@ export class HomeLandingComponent implements OnInit, AfterViewInit, OnDestroy {
   submitSuccess = false;
 
   isCardEnlarged: boolean = false;
+  showAllClients: boolean = false;
   isPsh: boolean = false;
   isPayRoll: boolean = false;
   isWebSecurity: boolean = false;

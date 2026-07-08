@@ -118,6 +118,18 @@
     cursor: pointer;
 }
 
+.menu-item-card-service {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 16px; /* Tighter padding inside the card */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    background: transparent;
+    cursor: pointer;
+}
+
 .menu-item-card:hover {
     background: rgba(255, 255, 255, 0.04);
 }
@@ -146,6 +158,16 @@
 }
 
 .menu-item-card p {
+    font-size: 12.5px;
+    color: #94A3B8;
+    margin: 4px 0 0 0;
+    line-height: 1.5;
+    /* Forces long descriptions to wrap to the next line securely */
+    white-space: normal; 
+    word-wrap: break-word; 
+}
+
+.menu-item-card-service p {
     font-size: 12.5px;
     color: #94A3B8;
     margin: 4px 0 0 0;
@@ -305,17 +327,17 @@
    9. DYNAMIC HEADER SCROLL EFFECT
    ========================================= */
 #header {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); */
     background: transparent;
     padding: 15px 0;
 }
 
 #header.header-scrolled {
-    background-color: rgba(11, 17, 32, 0.95);
+    background-color: rgba(11, 17, 32, 0.95) !important;
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
     padding: 10px 0;
 }
 
@@ -327,6 +349,7 @@
     opacity: 0.8;
     font-weight: 500;
     transition: color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
 }
 
 #navbar>ul>li>a.nav-link:hover,
@@ -348,25 +371,147 @@
 #header.header-scrolled-white .logo .white_logo { display: block !important; }
 
 /* =========================================
-   12. MOBILE FALLBACKS
+   12. MOBILE DEDICATED LAYOUT (Max Width: 991px)
    ========================================= */
+
+/* Ensure mobile elements are hidden on Desktop */
+.mobile-nav-toggle, 
+.mobile-nav-wrapper {
+    display: none;
+}
+
 @media (max-width: 991px) {
-    .dropdown-menu {
-        position: static !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        transform: none !important;
-        left: auto !important;
-    }
-    
-    .dropdown-hover:hover>.dropdown-menu {
-        transform: none !important;
+    /* Hide the original desktop nav entirely */
+    .desktop-nav {
+        display: none !important;
     }
 
-    .dropdown-flex-container { flex-direction: column; }
-    .menu-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 20px; }
-    .menu-content { padding: 20px; }
-    .menu-grid { grid-template-columns: 1fr; }
-    .ecosystem-grid { max-width: 100%; }
-    .blog-content p { max-width: 100%; }
+    /* 1. Mobile Nav Toggle (Hamburger & X) */
+    .mobile-nav-toggle {
+        display: block !important;
+        font-size: 32px;
+        color: #ffffff;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .bi-x.mobile-nav-toggle {
+        position: fixed;
+        top: 25px;
+        right: 25px;
+    }
+
+    /* 2. The Slide-in Menu Panel */
+    .mobile-nav-wrapper {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen */
+        width: 85%;
+        height: 100vh;
+        background: rgba(11, 17, 32);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+        padding: 80px 20px 30px 20px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 9998;
+        overflow-y: auto;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 0;
+    }
+
+    /* Active state to slide the menu into view */
+    .mobile-nav-wrapper.show {
+        right: 0;
+    }
+
+    /* 3. Mobile Links Styling */
+    .mobile-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .mobile-nav-list > li {
+        width: 100%;
+    }
+
+    .mobile-nav-list a.nav-link {
+        padding: 16px 10px 16px 5px;
+        font-size: 16px;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .mobile-nav-list a.nav-link.active-link {
+        color: #3B82F6;
+    }
+
+    /* 4. Arrow Rotation */
+    .mobile-nav-list .bi-chevron-down {
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-list .bi-chevron-down.rotated {
+        transform: rotate(180deg);
+        color: #3B82F6;
+    }
+
+    /* 5. Mobile Accordion Dropdown Menu */
+    .mobile-dropdown-menu {
+        display: none;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        margin: 5px 0 15px 0;
+        padding: 10px;
+    }
+
+    .mobile-dropdown-menu.show {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Clean links inside the accordion */
+    .mobile-dropdown-menu a {
+        color: #94A3B8;
+        padding: 12px 10px;
+        font-size: 14px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        display: block;
+        cursor: pointer;
+    }
+
+    .mobile-dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-dropdown-menu a:active {
+        color: #3B82F6;
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+    }
+
+    .mobile-sub-heading {
+        color: #64748B;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin: 15px 10px 5px 10px;
+    }
 }

@@ -3,15 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 
-const routes: Routes = [{
-  path: '', component: HomeComponent, children: [
-
-    { path: 'landing', loadChildren: () => import(`./landing/landing.module`).then(m => m.LandingModule) },
-    {
-      path: '', redirectTo: 'landing', pathMatch: 'full'
-    }
-  ]
-}
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      // Load the module directly on the empty path. No redirects!
+      {
+        path: '',
+        loadChildren: () => import(`./landing/landing.module`).then(m => m.LandingModule)
+      }
+    ]
+  }
 ];
 
 @NgModule({

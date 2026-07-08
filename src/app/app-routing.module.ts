@@ -3,18 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { EscrowComponent } from './products/escrow/escrow.component';
 import { VirtualaccountComponent } from './products/virtualaccount/virtualaccount.component';
 import { PshComponent } from './home/landing/psh/psh.component';
+import { CareersComponent } from './home/landing/careers/careers.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'Interland', pathMatch: 'full' },
   { path: 'escrow', component: EscrowComponent },
   { path: 'virtual-account', component: VirtualaccountComponent },
   { path: 'psh', component: PshComponent },
-  { path: 'Interland', loadChildren: () => import(`./home/home.module`).then(m => m.HomeModule) },
-  {path: '**', redirectTo: '/404'}
-  
+  { path: 'careers', component: CareersComponent },
+  {
+    path: '',
+    loadChildren: () => import(`./home/home.module`).then(m => m.HomeModule)
+  },
+  { path: '**', redirectTo: '/404' }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -45,6 +45,10 @@
   width: 100%;
 }
 
+.text-align-center{
+  text-align: center;
+}
+
 /* Only box-sizing on the universal selector — NOT margin/padding.
    Putting margin:0/padding:0 here creates specificity 0,1,1 which
    silently overrides all class-level padding rules (specificity 0,1,0). */
@@ -841,6 +845,7 @@
 .va-entity__visual {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .entity-svg {
@@ -1013,6 +1018,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 24px;
+  width: 100%;
 }
 
 .model-svg {
@@ -1112,6 +1118,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
+  width: 100%;
 }
 
 .statement-svg {
@@ -1417,27 +1424,42 @@
    RESPONSIVE — TABLET (<=1024px)
    ============================================================ */
 @media (max-width: 1024px) {
-  .va-hero__inner           { grid-template-columns: 1fr; gap: 48px; }
-  .va-hero__visual          { display: none; }
-  .va-hero__title           { font-size: 44px; }
-  .va-what__inner           { grid-template-columns: 1fr; gap: 48px; }
-  .va-stats__grid           { grid-template-columns: repeat(2, 1fr); }
-  .stat-card                { border-right: none; border-bottom: 1px solid rgba(0,212,184,0.1); }
+  /* 1. Un-hide SVGs and stack them cleanly above text */
+  .va-hero__inner { display: flex; flex-direction: column-reverse; gap: 30px; }
+  .va-hero__visual { display: flex !important; justify-content: center; width: 100%; margin: 0; }
+  .va-hero__title { font-size: 44px; }
+  
+  .va-what__inner { display: flex; flex-direction: column; gap: 48px; }
+  
+  .va-stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card { border-right: none; border-bottom: 1px solid rgba(0,212,184,0.1); }
   .stat-card:nth-child(odd) { border-right: 1px solid rgba(0,212,184,0.1); }
-  .driver-grid              { grid-template-columns: repeat(2, 1fr); }
-  .feature-card             { grid-template-columns: 1fr; gap: 36px; }
-  .feature-card--reverse    { direction: ltr; }
-  .creation-grid            { grid-template-columns: 1fr 1fr; }
-  .va-entity__inner         { grid-template-columns: 1fr; gap: 48px; }
-  .entity-svg               { max-width: 300px; margin: 0 auto; }
-  .va-model__content        { grid-template-columns: 1fr; gap: 40px; }
-  .benefits-grid            { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .va-faq__inner            { grid-template-columns: 1fr; gap: 40px; }
-  .faq-illustration         { display: none; }
-  .va-faq__header           { position: static; }
-  .va-statement__inner      { grid-template-columns: 1fr; gap: 40px; }
-  .va-cta__inner            { grid-template-columns: 1fr; gap: 40px; }
-  .va-cta__visual           { display: none; }
+  
+  .driver-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Reset alternating RTL layouts to standard stacking */
+  .feature-card { display: flex !important; flex-direction: column; gap: 36px; }
+  .feature-card--reverse { direction: ltr; }
+  .feature-card--reverse > * { direction: ltr; }
+  
+  .creation-grid { grid-template-columns: 1fr 1fr; }
+  
+  /* Image on top of text for these sections */
+  .va-entity__inner { display: flex; flex-direction: column-reverse; gap: 40px; }
+  .entity-svg { max-width: 340px; margin: 0 auto; }
+  
+  .va-model__content { display: flex; flex-direction: column-reverse; gap: 40px; }
+  
+  .benefits-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  
+  .va-faq__inner { grid-template-columns: 1fr; gap: 40px; }
+  .faq-illustration { display: none; }
+  .va-faq__header { position: static; }
+  
+  .va-statement__inner { display: flex; flex-direction: column; gap: 40px; }
+  
+  .va-cta__inner { display: flex; flex-direction: column-reverse; gap: 40px; }
+  .va-cta__visual { display: flex !important; justify-content: center; }
 }
 
 /* ============================================================
@@ -1446,35 +1468,76 @@
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
 
-  .va-hero,
-  .va-what,
-  .va-why,
-  .va-features,
-  .va-creation,
-  .va-entity,
-  .va-model,
-  .va-budget,
-  .va-statement,
-  .va-benefits,
-  .va-faq,
-  .va-cta {
-    padding: 64px 0;
+  /* Tighter global padding for mobile screens */
+  .va-hero, .va-what, .va-why, .va-features, .va-creation, .va-entity, 
+  .va-model, .va-budget, .va-statement, .va-benefits, .va-faq, .va-cta {
+    padding: 60px 0;
   }
 
-  .va-hero__title     { font-size: 34px; letter-spacing: -0.5px; }
-  .va-hero__desc      { font-size: 15px; }
-  .va-hero__cta       { flex-direction: column; }
-  .section-title      { font-size: 26px; }
-  .section-desc       { font-size: 14px; }
-  .va-stats__grid     { grid-template-columns: 1fr 1fr; }
-  .stat-card          { padding: 28px 20px; }
-  .stat-value         { font-size: 30px; }
-  .driver-grid        { grid-template-columns: 1fr; }
-  .creation-grid      { grid-template-columns: 1fr; }
-  .benefits-grid      { grid-template-columns: 1fr; }
-  .budget-grid        { grid-template-columns: 1fr; }
-  .va-mini-diagram    { flex-wrap: wrap; }
+  .va-hero__title { font-size: 34px; letter-spacing: -0.5px; margin-bottom: 15px; }
+  .va-hero__desc { font-size: 15px; }
+  .va-hero__cta { flex-direction: column; }
+  
+  /* Scale Hero Image accurately for smartphones */
+  .hero-svg { max-width: 320px !important;
+  margin-top: 65px; }
+  
+  .section-title { font-size: 26px; line-height: 1.3; }
+  .section-desc { font-size: 14px; }
+  
+  .va-stats__grid { grid-template-columns: 1fr 1fr; }
+  .stat-card { padding: 20px 15px; }
+  .stat-value { font-size: 24px; }
 
+  /* 2. Table Horizontal Scroll (Edge-to-Edge) */
+  .va-what__table-wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Breaks out of container padding */
+    padding: 0 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comparison-table { min-width: 500px; }
+
+  /* 3. NATIVE HORIZONTAL SWIPE CARDS (Replacing endless vertical scrolling) */
+  .driver-grid, 
+  .creation-grid, 
+  .benefits-grid, 
+  .budget-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    gap: 15px !important;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 10px 20px 25px 20px !important; /* Bottom padding prevents shadow clipping */
+  }
+  
+  /* Hide scrollbars for Chrome/Safari */
+  .driver-grid::-webkit-scrollbar, 
+  .creation-grid::-webkit-scrollbar, 
+  .benefits-grid::-webkit-scrollbar, 
+  .budget-grid::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+  /* Forces cards to 85% width so the next card peeks into view */
+  .driver-card, 
+  .creation-card, 
+  .benefit-card, 
+  .budget-card {
+    flex: 0 0 85% !important; 
+    max-width: 85% !important;
+    height: auto;
+  }
+
+  .va-mini-diagram { flex-wrap: wrap; justify-content: center; }
+
+  /* Stack Tab buttons neatly */
   .tab-switcher {
     flex-direction: column;
     width: 100%;
@@ -1482,12 +1545,15 @@
     margin-bottom: 32px;
   }
 
-  .tab-btn              { border-radius: 8px; text-align: center; }
-  .faq-item__question   { font-size: 14px; padding: 18px 20px; }
-  .faq-item__answer p   { padding: 0 20px 18px; }
-  .va-cta__title        { font-size: 26px; }
-  .va-cta__actions      { flex-direction: column; }
-  .btn--lg              { justify-content: center; }
+  .tab-btn { border-radius: 8px; text-align: center; padding: 12px; }
+  
+  /* FAQ adjustments */
+  .faq-item__question { font-size: 14px; padding: 18px 20px; }
+  .faq-item__answer p { padding: 0 20px 18px; }
+  
+  .va-cta__title { font-size: 26px; }
+  .va-cta__actions { flex-direction: column; }
+  .btn--lg { justify-content: center; }
 }
 
 /* ============================================================

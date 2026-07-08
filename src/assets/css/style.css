@@ -127,7 +127,7 @@ h6 {
 .header-inner-pages .navbar a,
 .header-scrolled .navbar a:focus,
 .header-inner-pages .navbar a:focus {
-  color: #000000;
+  /* color: #000000; */
 
   /* Set the color to black when scrolled up */
 }
@@ -138,9 +138,9 @@ h6 {
 } */
 
 /* when scrolled down the color of the toggle button changes to black */
-.header-scrolled .mobile-nav-toggle {
+/* .header-scrolled .mobile-nav-toggle {
   color: #000000;
-}
+} */
 
 /* .header-scrolled .mobile-nav-toggle .black_logo{
   display: none !important;
@@ -269,6 +269,7 @@ h6 {
   color: #d6d6d6;
   white-space: nowrap;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .navbar a i,

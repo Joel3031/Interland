@@ -15,6 +15,7 @@ h1, h2, h3, h4 {
 
 p {
     color: #94A3B8;
+    text-align: center;
 }
 
 .section-dark {
@@ -839,5 +840,169 @@ ul.footer-links li a:hover {
 #header.bg-white .logo .white_logo,
 #header.header-scrolled-white .logo .white_logo {
     display: block !important;
+}
+
+/* ============================================================
+   11. PREMIUM MOBILE OPTIMIZATION (Max Width: 768px)
+   ============================================================ */
+:host {
+    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+}
+
+@media (max-width: 768px) {
+    /* 1. Global Spacing & Typography */
+    .escrow-overview, .escrow-how-it-works, .escrow-features, .escrow-structure, .escrow-cta, .trust-finale-container {
+        padding: 60px 0 !important;
+    }
+
+    .hero {
+        padding: 30px 15px !important;
+        min-height: auto;
+        margin: 10px 0;
+        background: none;
+    }
+
+    /* FLIPS THE IMAGE TO THE TOP */
+    .hero__content {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        gap: 20px !important;
+        margin-top: 20px !important;
+    }
+
+    .hero__text h1 {
+        font-size: 34px !important;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .hero__text p {
+        font-size: 15px;
+    }
+
+    .section-title h3 {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 2. Fix Laptop Mockup Overflow & Alignment */
+    .hero__visual {
+        width: 100%;
+        overflow: hidden; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 0 60px 0;
+    }
+
+    .laptop-wrapper {
+        transform: scale(0.65); /* Scales the 480px laptop down perfectly */
+        transform-origin: center center; 
+        margin: -40px 0 -60px 0; /* Trims invisible dead space */
+    }
+
+    /* Hides the floating glass cards on mobile as they bleed off the edge */
+    .floating-card {
+        display: none !important;
+    }
+
+    /* ... Keep your existing 3, 4, and 5 Overview and Swipe Card CSS below here ... */
+
+/* 3. Overview Grid Adjustments (Maintains 2x2 Grid) */
+    .escrow-overview .row.g-4 {
+        margin: 0 !important; /* Prevents the row from pushing past screen edges */
+    }
+
+    .escrow-overview .row.g-4 .col-sm-6 {
+        width: 50% !important; /* Forces the 2-column layout on mobile */
+        padding: 5px !important; /* Creates a tighter gap between cards */
+    }
+    
+    .escrow-overview .feature-card {
+        transform: none !important; 
+        padding: 20px 10px !important; /* Reduced padding so content fits inside half-width */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Scales down the massive numbers & icons to fit the smaller cards */
+    .escrow-overview .feature-card h2,
+    .escrow-overview .feature-card .bx-shield-quarter {
+        font-size: 32px !important; 
+        margin-bottom: 8px !important;
+    }
+
+    /* Scales down the label text */
+    .escrow-overview .feature-card p:nth-of-type(1) {
+        font-size: 11px !important;
+    }
+
+    /* Scales down the description text */
+    .escrow-overview .feature-card p:nth-of-type(2) {
+        font-size: 11px !important;
+        line-height: 1.3;
+        margin-top: 5px !important;
+    }
+
+    /* 4. NATIVE HORIZONTAL SWIPE CARDS (Replacing vertical stacks) */
+    .step-sequence-container,
+    .escrow-structure .row, 
+    .escrow-features .row, 
+    .trust-finale-container .row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        
+        /* Fix: Hides internal wobble but allows main page to scroll vertically */
+        overflow-y: hidden !important; 
+        align-items: stretch !important; 
+        
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; 
+        justify-content: flex-start !important;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding: 10px 20px 30px 20px !important; 
+        gap: 15px !important;
+    }
+
+    /* Hide scrollbars for Chrome/Safari */
+    .step-sequence-container::-webkit-scrollbar,
+    .escrow-structure .row::-webkit-scrollbar, 
+    .escrow-features .row::-webkit-scrollbar, 
+    .trust-finale-container .row::-webkit-scrollbar { 
+        display: none; 
+    }
+
+    /* Sizing the cards to 85% width so the next one intuitively peeks into view */
+    .step-sequence-item,
+    .escrow-structure .col-lg-4, 
+    .escrow-features .col-lg-8, 
+    .escrow-features .col-lg-4, 
+    .trust-finale-container .col-lg-4 {
+        flex: 0 0 85% !important;
+        max-width: 85% !important;
+        height: auto !important; 
+        padding: 0 !important; 
+    }
+    
+    /* 5. Footer Adjustments */
+    .escrow-footer {
+        padding: 60px 0 20px 0 !important;
+        text-align: center;
+    }
+    
+    .escrow-footer .footer-brand, 
+    .escrow-footer .footer-socials {
+        justify-content: center;
+    }
+    
+    .escrow-footer .footer-text {
+        margin: 0 auto 25px auto;
+    }
 }
 

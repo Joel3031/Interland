@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,77 +8,93 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  isScrolled     = false;
+  isScrolled = false;
   openDropdown: string | null = null;
   mobileMenuOpen = false;
 
-  constructor(private router: Router, private el: ElementRef) {}
+  // Injected Renderer2 to safely manipulate the DOM
+  constructor(private router: Router, private el: ElementRef, private renderer: Renderer2) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /* ── Scroll ── */
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
+    this.isScrolled = window.scrollY > 5;
   }
 
   /* ── Click outside the entire header component ── */
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
     if (!this.el.nativeElement.contains(event.target)) {
-      this.openDropdown  = null;
-      this.mobileMenuOpen = false;
+      this.closeAll();
     }
   }
 
   /* ── Escape key closes everything ── */
   @HostListener('document:keydown.escape', [])
   onEscapeKey() {
-    this.openDropdown  = null;
-    this.mobileMenuOpen = false;
+    this.closeAll();
   }
 
-  /* ── Toggle a named dropdown (clicking the same one closes it) ── */
-  toggleDropdown(name: string): void {
+  /* ── Toggle a named dropdown (Modified for Mobile Accordion) ── */
+  toggleDropdown(name: string, event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
     this.openDropdown = this.openDropdown === name ? null : name;
   }
 
   /* ── Mobile hamburger ── */
   toggleMobile(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
-    if (this.mobileMenuOpen) { this.openDropdown = null; }
+    if (!this.mobileMenuOpen) {
+      this.openDropdown = null;
+    }
+    this.manageBodyScroll();
   }
 
   /* ── Close everything (called on nav-link clicks) ── */
   closeAll(): void {
-    this.openDropdown  = null;
+    this.openDropdown = null;
     this.mobileMenuOpen = false;
+    this.manageBodyScroll();
+  }
+
+  /* ── Lock/Unlock Background Scrolling ── */
+  manageBodyScroll(): void {
+    if (this.mobileMenuOpen) {
+      // Disables scrolling on the main page
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else {
+      // Re-enables scrolling
+      this.renderer.removeStyle(document.body, 'overflow');
+    }
   }
 
   /* ── Route helpers ── */
   navigateToCareers() {
     this.closeAll();
-    this.router.navigate(['./Interland/landing/careers']);
+    this.router.navigate(['/careers']);
   }
 
   navigateToPsh() {
     this.closeAll();
-    this.router.navigate(['./Interland/landing/psh']);
+    this.router.navigate(['/psh']);
   }
 
   navigateToVa() {
     this.closeAll();
-    this.router.navigate(['./products/virtual-account']);
+    this.router.navigate(['/virtual-account']);
   }
 
   navigateToEscrow() {
     this.closeAll();
-    this.router.navigate(['./products/escrow']);
+    this.router.navigate(['/escrow']);
   }
 
   navigateToHome() {
     this.closeAll();
-    this.router.navigate(['./Interland/landing/home']).then(() => {
+    this.router.navigate(['/home']).then(() => {
       const homeElement = document.querySelector('app-home');
       if (homeElement && (homeElement as any)['scrollToTop']) {
         (homeElement as any)['scrollToTop']();

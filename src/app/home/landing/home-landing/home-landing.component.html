@@ -17,7 +17,7 @@
             support.</li>
         </ul>
       </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img" style="margin-top: 150px;">
+      <div class="col-lg-6 order-1 order-lg-2 hero-img">
         <div class="parent icon-3d">
           <div class="square" [@scatterAndGather1]="scatterAndGather1"></div>
           <div class="square" [@scatterAndGather2]="scatterAndGather2"></div>
@@ -523,8 +523,8 @@
       <div class="detail-box-container">
 
         <div class="detail-content" *ngIf="selectedService === 'PSH'">
-          <h3>ALFARIS Payments Services Hub (PSH)</h3>
-          <p>ALFARIS Payments Services Hub (PSH) is a centralized real-time payments and transaction management solution
+          <h3> Payments Services Hub (PSH)</h3>
+          <p> Payments Services Hub (PSH) is a centralized real-time payments and transaction management solution
             designed to streamline all payment processing operations for financial institutions. This sophisticated hub
             handles high volumes of transactions with speed, security, and configurable, rules-driven processing,
             allowing banks to maintain full control.</p>
@@ -538,7 +538,7 @@
         </div>
 
         <div class="detail-content" *ngIf="selectedService === 'Payroll'">
-          <h3>ALFARIS Payroll System</h3>
+          <h3> Payroll System</h3>
           <p>Navigate the complexities of modern payroll management with Alfaris Payroll System. Our comprehensive
             offering combines advanced technology, user-friendly interfaces, and personalized support to ensure
             accurate, compliant, and efficient payroll processing for organizations of any size. Focus on organizational
@@ -848,17 +848,16 @@
       <div class="section-title">
         <h2>Our Clients</h2>
         <p class="text-center">Champions of innovation, guardians of excellence,
-          and architects of
-          tomorrow's success.
+          and architects of tomorrow's success.
         </p>
         <p class="text-center mb-5">Together, we forge paths of growth,
-          innovation,
-          and mutual prosperity, inspiring confidence in every endeavor.
+          innovation, and mutual prosperity, inspiring confidence in every endeavor.
         </p>
       </div>
 
       <div class="wrapper-items">
-        <div class="clients-item" *ngFor="let logo of Logos; let i = index">
+        <div class="clients-item" *ngFor="let logo of Logos; let i = index"
+          [ngClass]="{'d-none d-md-flex': i >= 6 && !showAllClients}">
           <div class="clients-card">
             <div class="client-img">
               <img [src]="logo.url" [alt]="logo.alt">
@@ -869,6 +868,14 @@
           </div>
         </div>
       </div>
+
+      <div class="text-center mt-4 d-block d-md-none">
+        <button class="btn btn-view-clients" (click)="showAllClients = !showAllClients">
+          {{ showAllClients ? 'View Less' : 'View All Clients' }}
+          <i class="bi" [ngClass]="showAllClients ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+        </button>
+      </div>
+
       <div class="text-center mt-5 pt-3">
         <p style="color: #a0a0a0; font-size: 15px;">
           In partnership with
